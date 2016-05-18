@@ -1,0 +1,14 @@
+
+var config = 
+{
+	testsPath : __dirname + '/tests/',
+	tests : ['test_1'],
+	services : [],
+	outputPath : __dirname + '/outputs/',
+	metadataPath : __dirname + '/tests/metadata/',
+	services : ['microsoftOxfordFR', 'bitDefenderFR'],  // 'bitDefenderFR', 'microsoftOxfordFR'
+	servicesPath : __dirname + '/lib/services/',
+	outputName : 'test_result_' + (new Date()).getTime() + '.json',
+}
+
+module.exports = config;

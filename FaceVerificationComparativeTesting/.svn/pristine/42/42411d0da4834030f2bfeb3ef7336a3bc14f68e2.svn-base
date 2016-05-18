@@ -1,0 +1,32 @@
+include layout
+div#lockscreen
+
+script(type='text/javascript').
+	var server_data = !{JSON.stringify(data)}
+
+div.container-fluid
+	div.row
+		h3 Input
+		hr
+	div.row
+		div.col-lg-4#inputForm_1
+			form#form1
+				input( type="file" id="image1form" )
+				img( id="inputImage1" src="images\\input.png" alt=" " )
+		div.col-lg-4#inputForm_2
+			form#form1
+				input( type="file" id="image2form" )
+				img( id="inputImage2" src="images\\input.png"  alt=" ")
+		div.col-lg-4#inputStats
+			div.row#inputStatsTable
+	div.row
+		hr
+		h3 Output
+		hr
+		div.row#oLoadArea
+		hr
+		div.row#testGlobals
+		
+script(type='text/javascript', src='/js/input.js')
+script(type='text/javascript', src='/js/runTest.js')
+script(type='text/javascript', src='/js/output.js')

@@ -1,0 +1,268 @@
+/*
+	this script reads in the config file
+		- reads the tests to be run
+		- runs each test individualy:
+
+		- returns the results for each test and merges those results in one final result
+		- writes the result in the output folder
+*/
+
+/**********************	 REQUIRE ***************************/
+var config = require('./config');
+var async = require('async');
+var fs = require('fs');
+/********************** GLOBALS ****************************/
+var main = function(config)
+{
+	var testMaster = 
+	{
+		tests : {},
+		globals : {},
+	};
+
+	testMaster.info = 
+	{
+		tests : config.tests,
+		services : config.services,
+		total : 0,
+		startTime : (new Date().getTime()),
+	}
+
+	testMaster.done = false;
+
+	var flags = 
+	{
+		TP : 'TP',
+		FN : 'FN',
+		FP : 'FP',
+		TN : 'TN',
+		FA : 'FA',
+	}
+
+
+	/********************** FUNCTIONS **************************/ 
+
+	var initTest = function(testName, metadata)
+	{
+		testMaster.tests[testName] = 
+		{
+			pairs : metadata.pairs,
+			stats :	{}
+		}
+
+		testMaster.info.total = metadata.pairs.length;
+	}
+
+	var processResult = function(serviceName, testName, index, result)
+	{
+		if(testMaster.tests[testName].pairs[index].results)
+		{
+			if(!testMaster.tests[testName].pairs[index].results[serviceName])
+			{
+				testMaster.tests[testName].pairs[index].results[serviceName] = {};
+			}
+		}
+		else
+		{
+			testMaster.tests[testName].pairs[index].results = {};
+			testMaster.tests[testName].pairs[index].results[serviceName] = {};
+		}
+
+		// set stats
+		if(!testMaster.tests[testName].stats[serviceName])
+		{
+			testMaster.tests[testName].stats[serviceName] = 
+				{
+					FN : 0,
+					FP : 0,
+					TP : 0,
+					TN : 0,
+					FA : 0,
+					done : 1,
+				};
+		}
+		else
+		{
+			testMaster.tests[testName].stats[serviceName].done++;
+		}
+
+		testMaster.tests[testName].pairs[index].results[serviceName].fullresult = result;
+		// set flag
+		if(testMaster.tests[testName].pairs[index].label == result.label && result.label == 1)
+		{
+			testMaster.tests[testName].pairs[index].results[serviceName].flag = flags.TP;
+			testMaster.tests[testName].stats[serviceName].TP++;
+
+		}
+		else if(testMaster.tests[testName].pairs[index].label == result.label && result.label == 0)
+		{
+			testMaster.tests[testName].pairs[index].results[serviceName].flag = flags.TN;
+			testMaster.tests[testName].stats[serviceName].TN++;
+		}
+		else if ( result.label == 1)
+		{
+			testMaster.tests[testName].pairs[index].results[serviceName].flag = flags.FP;
+			testMaster.tests[testName].stats[serviceName].FP++;
+		}
+		else if ( result. label == 0)
+		{
+		 	testMaster.tests[testName].pairs[index].results[serviceName].flag = flags.FN;
+		 	testMaster.tests[testName].stats[serviceName].FN++;
+		}
+		else 
+		{
+			testMaster.tests[testName].pairs[index].results[serviceName].flag = flags.FA;
+			testMaster.tests[testName].stats[serviceName].FA++;
+		}
+
+		cumulateData();
+
+		// write output
+		fs.writeFileSync(config.outputPath + config.outputName, JSON.stringify(testMaster, null, 4));
+	}
+
+	var processPairs = function(index, service, testName, _cb)
+	{
+		console.log('processing pair ' + index );
+
+		if(index == testMaster.tests[testName].pairs.length)
+		{
+			_cb();
+		}
+		else
+		{
+			var pair   = testMaster.tests[testName].pairs[index];
+			var i1Path = config.testsPath + testName + "/" + pair.i1;
+			var i2Path = config.testsPath + testName + "/" + pair.i2;
+
+			service.processPair(i1Path, i2Path, function(result)
+			{
+				console.log('received result ' + JSON.stringify(result));
+				
+				processResult(service.name, testName, index, result);
+				processPairs(index + 1, service, testName, _cb);
+			});
+		}
+	}
+
+	var runService = function(param, _cb)
+	{
+		var serviceName = param.service;
+		var testName    = param.testName;
+		var service     = require(config.servicesPath + serviceName);
+
+		console.log('runing service ' + serviceName);
+
+		processPairs(0, service, testName, function()
+		{
+			console.log("*** " + serviceName + " done ***");
+			_cb(null, serviceName);
+		});
+	}
+
+	var runTest = function (testName, _cb) {	
+		var metadata = JSON.parse(fs.readFileSync(config.metadataPath + testName + '.js'));	
+
+		initTest(testName, metadata);
+
+		var param = [];
+
+		for(var i in config.services)
+		{
+			var tmp = 
+			{
+				service : config.services[i],
+				testName : testName,
+			}
+			param.push(tmp);
+		}
+
+		async.map(param, runService, function(err, results)
+		{
+			_cb(null, testName);
+		});	
+	}
+
+	var cumulateData = function()
+	{
+		avgTimes = {}
+
+		for(var i in testMaster.globals)
+		{
+			avgTimes[i] = testMaster.globals[i].avgTime;
+		}
+
+		testMaster.globals = {};
+
+		for(var i in testMaster.tests)
+		{
+			for(var k in testMaster.tests[i].stats)
+			{
+				if(testMaster.globals[k])
+				{
+					testMaster.globals[k].FN += testMaster.tests[i].stats[k].FN;
+					testMaster.globals[k].FP += testMaster.tests[i].stats[k].FP;
+					testMaster.globals[k].TP += testMaster.tests[i].stats[k].TP;
+					testMaster.globals[k].TN += testMaster.tests[i].stats[k].TN;
+					testMaster.globals[k].FA += testMaster.tests[i].stats[k].FA;
+
+					var done = testMaster.globals[k].FN + testMaster.globals[k].FP + 
+							   testMaster.globals[k].TP + testMaster.globals[k].TN +
+							   testMaster.globals[k].FA;
+
+					if(done < testMaster.info.total)
+					{
+						var deltaSeconds = parseInt(((new Date()).getTime() - testMaster.info.startTime) / 1000);
+						testMaster.globals[k].avgTime = parseFloat((deltaSeconds / done).toFixed(2));
+					}
+				}
+				else
+				{
+					testMaster.globals[k] = {};
+					testMaster.globals[k].FN = testMaster.tests[i].stats[k].FN;
+					testMaster.globals[k].FP = testMaster.tests[i].stats[k].FP;
+					testMaster.globals[k].TP = testMaster.tests[i].stats[k].TP;
+					testMaster.globals[k].TN = testMaster.tests[i].stats[k].TN;
+					testMaster.globals[k].FA = testMaster.tests[i].stats[k].FA;
+
+					var done = testMaster.globals[k].FN + testMaster.globals[k].FP + 
+							   testMaster.globals[k].TP + testMaster.globals[k].TN +
+							   testMaster.globals[k].FA;
+
+					if(done < testMaster.info.total)
+					{
+						var deltaSeconds = parseInt(((new Date()).getTime() - testMaster.info.startTime) / 1000);
+						testMaster.globals[k].avgTime = parseFloat((deltaSeconds / done).toFixed(2));
+					}
+					else testMaster.globals[k].avgTime = avgTimes[k];
+				}
+			}
+		}
+	}
+
+	/********************** MAIN *******************************/
+
+	// run all tests
+		
+	async.map(config.tests, runTest, function(err, results)
+	{
+		cumulateData();
+		testMaster.done = true;
+
+		fs.writeFileSync(config.outputPath + config.outputName, JSON.stringify(testMaster, null, 4));
+	});
+
+
+	fs.writeFileSync(config.outputPath + config.outputName, JSON.stringify(testMaster, null, 4));
+
+	return testMaster;
+}
+
+//main(config);
+
+/********************** EXPORTS *****************************/
+module.exports = main;
+
+
+
+/********************* OTHERS *******************************/

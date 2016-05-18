@@ -1,0 +1,43 @@
+testMaster =
+{
+	tests : 
+	{
+		test1 : 
+		{tes
+			pairs : 
+			[
+				{
+					i1 : ..
+					i2 : ..
+					label : ..
+					results :
+					{
+						bit : 
+						{
+							fullresult : ..
+							label      : ..
+							flag       : ..
+						}
+						.
+						.
+						.
+
+					} 
+
+				}
+			]
+			stats :
+			{
+				FN:
+				FP:
+				TP:
+			}
+		}
+	}
+	globals :
+	{
+		FN :
+		FP :
+		TP :		
+	}
+}

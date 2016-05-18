@@ -1,0 +1,4 @@
+Comparative testing interface
+
+-- node bin/www to run
+-- in order to run a lfw test, extract your own version of lfw under tests/lfw_test/lfw

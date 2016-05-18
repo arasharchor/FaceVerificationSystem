@@ -1,0 +1,1130 @@
+{
+    "tests": {
+        "test_1": {
+            "pairs": [
+                {
+                    "i1": "Cate_Blanchet_03.jpg",
+                    "i2": "Marion_Cotillard_01.jpg",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.019337976351380348,
+                                    0.9806619882583618
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.0246
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "Cate_Blanchet_03.jpg",
+                    "i2": "Marion_Cotillard_02.jpg",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.10110215842723846,
+                                    0.8988978266716003
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "Marion_Cotillard_01.jpg",
+                    "i2": "Marion_Cotillard_02.jpg",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.09485609829425812,
+                                    0.9051439762115479
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.7073
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "799325f62829409132161112e1228132.png",
+                    "i2": "984170f570841fc71dbb40272a910269.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.8735979199409485,
+                                    0.12640206515789032
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "fae1952427ff6a2f0395101bbb0555a5.png",
+                    "i2": "15c04b2ccec5746528aeb83ea7060561.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.47618409991264343,
+                                    0.523815929889679
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.90428
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "c9e6a9113f079f69f4af2e0e44bd83ee.png",
+                    "i2": "64205a197d85175b514dc9c79cc6cb29.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.006913410034030676,
+                                    0.9930865168571472
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.77978
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "02877a39ba503576543870be07dfbcb9.png",
+                    "i2": "306a1796095bdd39de51a7a1ce389473.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.15704180300235748,
+                                    0.8429581522941589
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.82789
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "2d2ceea1e120dc746edb43eadd250592.png",
+                    "i2": "8ef563e7df1ba0640c72dcb23f45758d.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.35799285769462585,
+                                    0.6420071721076965
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.89232
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "02877a39ba503576543870be07dfbcb9.png",
+                    "i2": "ec51cf28fe32bd5313038834dda3cb1a.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.8623919486999512,
+                                    0.13760805130004883
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "306a1796095bdd39de51a7a1ce389473.png",
+                    "i2": "8ef563e7df1ba0640c72dcb23f45758d.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.4187489151954651,
+                                    0.5812510251998901
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.15326
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "fdd6629b0f9bd2384b5a0a89eeffa181.png",
+                    "i2": "9b08d5920229dec67e0e8a6eeaa6890b.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.005935884080827236,
+                                    0.9940641522407532
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "7a803fc4bcdacfaa8c685d0124503e11.png",
+                    "i2": "9b08d5920229dec67e0e8a6eeaa6890b.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.004956527147442102,
+                                    0.9950435161590576
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.0745
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "e8330568862a0e46e2bebc282b607b1c.png",
+                    "i2": "71b2a09b1a141b425eea94652fa74ce9.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.9658291935920715,
+                                    0.03417079523205757
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "984170f570841fc71dbb40272a910269.png",
+                    "i2": "68f7f64d7581f0b2fc4cccc8c8dd6ddd.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.9484500288963318,
+                                    0.05155001953244209
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.26033
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "e444522dc19d8b3d93b1d3b3addc9dd8.png",
+                    "i2": "d305feaf79b7110a65f4df9c150f2922.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.7363865971565247,
+                                    0.26361340284347534
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "6f84620a3b810d4991438f114834e9fd.png",
+                    "i2": "febc6d77a7c1580ca8a4c9c4a45ce1e8.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.018983887508511543,
+                                    0.9810160994529724
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.59701
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "6f84620a3b810d4991438f114834e9fd.png",
+                    "i2": "6893e56edd65cb754cf6a9ee274b0cf8.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.0059694210067391396,
+                                    0.9940305352210999
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.69908
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "6f84620a3b810d4991438f114834e9fd.png",
+                    "i2": "e936ba2e6171598bdf9176dd139a6fd4.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.09048973768949509,
+                                    0.9095103144645691
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.57316
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "6f84620a3b810d4991438f114834e9fd.png",
+                    "i2": "cfe591a3eed96a834cc26d87c81ec03a.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.05297529697418213,
+                                    0.9470246434211731
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.68737
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "febc6d77a7c1580ca8a4c9c4a45ce1e8.png",
+                    "i2": "6893e56edd65cb754cf6a9ee274b0cf8.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.02289266139268875,
+                                    0.9771073460578918
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.45619
+                                },
+                                "label": 0
+                            },
+                            "flag": "FN"
+                        }
+                    }
+                },
+                {
+                    "i1": "febc6d77a7c1580ca8a4c9c4a45ce1e8.png",
+                    "i2": "e936ba2e6171598bdf9176dd139a6fd4.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.5356336832046509,
+                                    0.4643663465976715
+                                ],
+                                "label": 0
+                            },
+                            "flag": "FN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.55115
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "febc6d77a7c1580ca8a4c9c4a45ce1e8.png",
+                    "i2": "cfe591a3eed96a834cc26d87c81ec03a.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.6928268671035767,
+                                    0.3071731626987457
+                                ],
+                                "label": 0
+                            },
+                            "flag": "FN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.54549
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "6893e56edd65cb754cf6a9ee274b0cf8.png",
+                    "i2": "e936ba2e6171598bdf9176dd139a6fd4.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.07777071744203568,
+                                    0.9222292900085449
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.51413
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "6893e56edd65cb754cf6a9ee274b0cf8.png",
+                    "i2": "cfe591a3eed96a834cc26d87c81ec03a.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.4415065348148346,
+                                    0.5584934949874878
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.58223
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "e936ba2e6171598bdf9176dd139a6fd4.png",
+                    "i2": "cfe591a3eed96a834cc26d87c81ec03a.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.8699922561645508,
+                                    0.130007803440094
+                                ],
+                                "label": 0
+                            },
+                            "flag": "FN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.58077
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "99416ed1b778b8a8b0d17fefd0fb0d8f.png",
+                    "i2": "fe62306e3623746d24b68c5b53676b57.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.001990322256460786,
+                                    0.9980097413063049
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.73591
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "5f2049a7276216c244018d1ad44765b2.png",
+                    "i2": "702ea8d3b121b94603541b064e374751.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.744552493095398,
+                                    0.25544753670692444
+                                ],
+                                "label": 0
+                            },
+                            "flag": "FN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.7525
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "febc6d77a7c1580ca8a4c9c4a45ce1e8.png",
+                    "i2": "5f2049a7276216c244018d1ad44765b2.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.6545636653900146,
+                                    0.34543630480766296
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.15865
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "702ea8d3b121b94603541b064e374751.png",
+                    "i2": "e936ba2e6171598bdf9176dd139a6fd4.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.8761464357376099,
+                                    0.12385351210832596
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.10509
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "9303e7f3e77534b36313d8a617294fa7.png",
+                    "i2": "6893e56edd65cb754cf6a9ee274b0cf8.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.28423815965652466,
+                                    0.7157618403434753
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.27899
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "a0efe1d73adba729a60ecd8b2dae2c26.png",
+                    "i2": "9303e7f3e77534b36313d8a617294fa7.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.8261818885803223,
+                                    0.17381808161735535
+                                ],
+                                "label": 0
+                            },
+                            "flag": "FN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.63709
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "a0efe1d73adba729a60ecd8b2dae2c26.png",
+                    "i2": "99416ed1b778b8a8b0d17fefd0fb0d8f.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.01836806908249855,
+                                    0.981631875038147
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "6e509cc58c432f53a3eb3b8af4881e56.png",
+                    "i2": "a2b09bfe89d102cb16855edfe10e6ea1.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.37988588213920593,
+                                    0.6201140880584717
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": true,
+                                    "confidence": 0.74222
+                                },
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        }
+                    }
+                },
+                {
+                    "i1": "9303e7f3e77534b36313d8a617294fa7.png",
+                    "i2": "6e509cc58c432f53a3eb3b8af4881e56.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.8928807973861694,
+                                    0.10711918026208878
+                                ],
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.06549
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "a2b09bfe89d102cb16855edfe10e6ea1.png",
+                    "i2": "6893e56edd65cb754cf6a9ee274b0cf8.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.008274011313915253,
+                                    0.9917259216308594
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.01363
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "99416ed1b778b8a8b0d17fefd0fb0d8f.png",
+                    "i2": "a2b09bfe89d102cb16855edfe10e6ea1.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.005208959802985191,
+                                    0.9947910308837891
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "a0efe1d73adba729a60ecd8b2dae2c26.png",
+                    "i2": "702ea8d3b121b94603541b064e374751.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.07561798393726349,
+                                    0.9243820309638977
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0.12087
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "fe62306e3623746d24b68c5b53676b57.png",
+                    "i2": "9303e7f3e77534b36313d8a617294fa7.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.01894577592611313,
+                                    0.9810541868209839
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": {
+                                    "isIdentical": false,
+                                    "confidence": 0
+                                },
+                                "label": 0
+                            },
+                            "flag": "TN"
+                        }
+                    }
+                },
+                {
+                    "i1": "99916e428caf548e476868d4099b1707.png",
+                    "i2": "7f9699e00645926ab494acf1675476f7.png",
+                    "label": 1,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.020280377939343452,
+                                    0.9797195792198181
+                                ],
+                                "label": 1
+                            },
+                            "flag": "TP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": "detection error",
+                                "label": -1
+                            },
+                            "flag": "FA"
+                        }
+                    }
+                },
+                {
+                    "i1": "6f84620a3b810d4991438f114834e9fd.png",
+                    "i2": "99916e428caf548e476868d4099b1707.png",
+                    "label": 0,
+                    "results": {
+                        "bitDefenderFR": {
+                            "fullresult": {
+                                "serviceOutput": [
+                                    0.012550338171422482,
+                                    0.9874496459960938
+                                ],
+                                "label": 1
+                            },
+                            "flag": "FP"
+                        },
+                        "microsoftOxfordFR": {
+                            "fullresult": {
+                                "serviceOutput": "detection error",
+                                "label": -1
+                            },
+                            "flag": "FA"
+                        }
+                    }
+                }
+            ],
+            "stats": {
+                "bitDefenderFR": {
+                    "FN": 5,
+                    "FP": 12,
+                    "TP": 15,
+                    "TN": 8,
+                    "FA": 0,
+                    "done": 40
+                },
+                "microsoftOxfordFR": {
+                    "FN": 1,
+                    "FP": 0,
+                    "TP": 18,
+                    "TN": 19,
+                    "FA": 2,
+                    "done": 40
+                }
+            }
+        }
+    },
+    "globals": {
+        "bitDefenderFR": {
+            "FN": 5,
+            "FP": 12,
+            "TP": 15,
+            "TN": 8,
+            "FA": 0,
+            "avgTime": 6.59
+        },
+        "microsoftOxfordFR": {
+            "FN": 1,
+            "FP": 0,
+            "TP": 18,
+            "TN": 19,
+            "FA": 2,
+            "avgTime": 12.72
+        }
+    },
+    "info": {
+        "tests": [
+            "test_1"
+        ],
+        "services": [
+            "microsoftOxfordFR",
+            "bitDefenderFR"
+        ],
+        "total": 40,
+        "startTime": 1453383806495
+    },
+    "done": true
+}

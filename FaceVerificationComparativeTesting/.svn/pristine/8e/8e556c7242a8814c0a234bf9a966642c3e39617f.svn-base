@@ -1,0 +1,127 @@
+// load ouput file *********************************************************************************************
+
+var updateGlobals = function(globals, fileName, total, info)
+{
+	var timeStamp = fileName.split('.')[0].split('_').pop();
+	var date = (new Date(parseInt(timeStamp))).toGMTString()
+
+	$('#testGlobals').empty();
+
+	$('#testGlobals').append("<h5 style='margin-left:40%'><strong>" + fileName + "</strong></h5>");
+
+	$('#testGlobals').append("<h5><strong>	Tests: </strong>" + info.tests.toString() + "</h5>");
+	$('#testGlobals').append("<h5><strong>	Services: </strong>" + info.services.toString() + "</h5>");
+	$('#testGlobals').append("<h5><strong>	Date: </strong>" + date + "</h5>");
+	$('#testGlobals').append("<h5><strong>	Progress: </strong>" + info.progress.total + " %</h5>");
+
+	var testMasterTable = "<table class='table' id='ouputFilesTable'><thead>" +
+	                	  "<tr><th>ServiceName</th>" +
+	                	  "<th>F1 Score</th>" +
+	                      "<th>Detection Rate</th>" + 
+	                      "<th>Precision</th>" + 
+	                      "<th>FN</th>" + 
+	                      "<th>FP</th>" + 
+	                      "<th>TN</th>" +
+	                      "<th>TP</th>" +
+	                      "<th>Progress</th>" +
+	                      "<th>Avg Time</th>";
+
+	testMasterTable += "</tr></thead><tbody>";
+
+	for(var i in globals)
+	{
+		var detection = parseFloat(((100 * globals[i].TP) / (globals[i].TP + globals[i].FN)).toFixed(2));
+		var precision = parseFloat(((100 * globals[i].TN) / (globals[i].TN + globals[i].FP)).toFixed(2));
+
+
+		var f1score = parseFloat(((2 * precision * detection) / (precision + detection)).toFixed(2));
+
+		testMasterTable += "<tr><td>" + i + "</td>";
+		testMasterTable += "<td>" + f1score + " %</td>";
+		testMasterTable += "<td>" + detection + " %</td>";
+		testMasterTable += "<td>" + precision + " %</td>";
+		testMasterTable += "<td>" + globals[i].FN + "</td>";
+		testMasterTable += "<td>" + globals[i].FP + "</td>";
+		testMasterTable += "<td>" + globals[i].TN + "</td>";
+		testMasterTable += "<td>" + globals[i].TP + "</td>";
+		testMasterTable += "<td>" + info.progress.services[i] + " %</td>";
+		testMasterTable += "<td>" + info.progress.time[i] + " sec/pair</td>";
+
+		testMasterTable += "</tr>";
+	}
+
+	testMasterTable += "</tbody></table>";
+
+	$('#testGlobals').append(testMasterTable)
+}
+
+
+var loadOuputFile = function(fileName)
+{
+	// get file
+	$.post('/getOuputFile', {fileName : fileName}, function(testMaster)
+	{
+		console.log(testMaster);
+		// display general stats 
+		updateGlobals(testMaster.globals, fileName, testMaster.info.total, testMaster.info);
+	})	
+
+	// display detailed stats
+}
+
+//**************************************************************************************************************
+
+// display all output files to *********************************************************************************
+
+var renderOuptuFilesList = function () {
+
+	var ouputFilesTable = "<table class='table' id='ouputFilesTable'><thead>" +
+	                	"<tr><th>FileName</th>" +
+	                    "<th>Date</th>" + 
+	                    "<th>Tests</th>" + 
+	                    "<th>Services</th>" +
+	                    "<th>Progress</th>" +
+	                    "<th>Action</th></tr></thead><tbody>";
+
+	for(var i in server_data.outputFiles)
+	{
+		var id = i.split('.')[0];
+
+		ouputFilesTable += "<tr><td>" + i + "</td>";
+
+		var timeStamp = id.split('_').pop();
+
+		var date = (new Date(parseInt(timeStamp))).toGMTString()
+
+		ouputFilesTable += "<td>" + date + "</td>";
+		ouputFilesTable += "<td>" + server_data.outputFiles[i].tests.toString() + "</td>";
+		ouputFilesTable += "<td>" + server_data.outputFiles[i].services.toString() + "</td>";
+		ouputFilesTable += "<td id='progress_" + id + "'>" + server_data.outputFiles[i].progress + " %</td>";
+
+	    ouputFilesTable += "<td><a href='#' class='btn btn-sm btn-success' id='" + id + "'>Load</a></td></tr>";
+	}
+
+	ouputFilesTable += "</tbody></table>";
+
+	$('#oLoadArea').append(ouputFilesTable);
+
+	for(var i in server_data.outputFiles)
+	{
+		if(server_data.outputFiles[i].progress != 100)
+		{
+			updateProgress(i);
+		}
+
+		var id = i.split('.')[0];
+
+		$('#' + id).click(function()
+		{
+			var fileName = $(this).attr('id') + ".json";
+			loadOuputFile(fileName);
+		})
+	}
+
+}
+
+//***************************************************************************************************************
+renderOuptuFilesList();

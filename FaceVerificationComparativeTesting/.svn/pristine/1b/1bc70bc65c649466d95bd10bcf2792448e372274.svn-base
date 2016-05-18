@@ -1,0 +1,36 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#inputImage1 {
+	max-width: 100%;
+}
+
+#inputImage2 {
+	max-width: 100%;
+}
+
+.btn-default {
+	margin:3px;
+	display: inline;
+}
+
+#lockscreen {
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color : grey;    
+    opacity: 0.3;
+}
+
+#testGlobals {
+  border: 1px solid black;
+}
+

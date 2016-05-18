@@ -1,0 +1,38 @@
+Proiectul are ca scop testarea comparativa a diferite servicii de face recognition
+
+Va avea 3 componente principale:
+
+1. Componenta de input - se ocupa cu introducearea datelor in teste
+2. Componenta de procesare - se ocupa cu procesarea datelor (trimiterea catre diferite servicii de face recognition)
+3. Componenta de output - afisare rezultate
+
+
+1. componenta de input:
+	va fi o interfata web care preia perechi de imagini continand o singura fatza (trebuie testat daca contine mai multe) nu se accepta si un label - 1 pentru aceeasi persoana	
+																																					  0 pentru persoane diferite
+				- user-ul va avea posibilitatea de a selecta in care test anume sa fie introduse datele
+				- pentru fiecare test va exista un folder separat cu imagini
+				- va exista un folder cu metadata, pentru fiecare folder cu imagini avem un json cu perechi de imagini + label-ul asociat
+				- pentru fiecare test se va mentine o statistica cu numarul de perechi pozitive si negative existent in test
+				- la fiecare noua introducere se va verifica daca perechea introdusa intra in conflict cu restul : - a mai fost introdusa odata
+																												   - a fost introdusa cu alt label
+2. componenta de procesare:
+	- va fi un script independent de interfata web care va fi rulat pe baza unui config(va putea fi rulat independent sau din interfata web) 
+	- in config vor fi specificate urmatoarele:
+			- constante : pathuri/etc
+			- care anume dintre teste sa fie rulate
+			- care servicii sa fie introduse in test
+	- scriptul de procesare va avea ca rezultat un fisier de tip json care poate fi interpretat de componenta de output
+	- fisierul de output poate fi accesat de catre componenta de output oricand, avand acces astfel la rezultate intermediare
+	- aditional scriptul de procesare poate dispune si de un cache
+
+3. componeta de output
+	- va avea ca input un fisier produs de catre scriptul de procesare
+	- va parsa acest fisier si va afisa intr-o pagina web intr-un mod cat mai user-friendly(face detection test framework) 
+
+TO DOs:
+
+- F1 score - done
+- FP rate <=> 100 - FP rate - done 
+- timpul mediu per prelucrare pereche - done
+- progress pt fiecare detector la vederea detaliata - done
