@@ -1,0 +1,20 @@
+{
+  "name": "face_verification_interface",
+  "version": "1.0.0",
+  "description": "face verification interface -- simple version",
+  "main": "interface-server.js",
+  "scripts": {
+    "test": "node interface-server.js"
+  },
+  "keywords": [
+    "face-verification",
+    "node-interface"
+  ],
+  "author": "gleotescu",
+  "license": "ISC",
+  "dependencies": {
+    "connect-busboy": "0.0.2",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4"
+  }
+}

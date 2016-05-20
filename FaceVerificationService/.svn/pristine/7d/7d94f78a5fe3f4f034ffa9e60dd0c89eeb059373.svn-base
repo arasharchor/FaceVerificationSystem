@@ -1,0 +1,686 @@
+var fs = require('fs');
+var path = require('path');
+var http = require('http');
+
+var express = require('express');
+
+
+var calssifiyRequest = function(input1, input2, _cb)
+{
+	//console.log("input 1: " + Array.isArray(input1));
+
+	var req_data = JSON.stringify
+				(
+					{
+						'requestVersion' : 'v2' ,
+						'priority' : 'high' ,
+						'input' : 
+							[
+								{
+								type : 'json',
+								data : input1,
+								},
+								{
+								type : 'json',
+								data : input2,
+								},
+							],
+
+						'action' : 
+							{											
+							method : "face_compare",
+							options : {},
+							}
+					}
+				);
+
+
+	var http_request_options = 
+				{
+				  host: req_web_service.address
+				, port: req_web_service.port
+				, method: 'POST'
+				, path: '/'
+				, headers:	{ 
+							  'Content-Type' : 'application/json'
+							, 'Content-Length' : Buffer.byteLength( req_data, 'utf8' )
+							}
+				};
+
+	var http_request = http.request
+						(
+							http_request_options , 
+							function( response ) 
+								{
+								console.log( output_prefix, 'STATUS: ' + response.statusCode);
+								console.log( output_prefix, 'HEADERS: ' + JSON.stringify(response.headers));
+								
+								var response_data = '';
+								  
+								response.on(	
+											'data', 
+											function( chunk ) 
+												{
+												response_data += chunk;
+												}
+										);
+
+								response.on(	
+											'end', 
+											function () 
+												{
+												//console.log( output_prefix, "response_data : ", response_data );
+												console.log( response_data )
+												var response_json = JSON.parse( response_data );
+
+												if(response_json.status == 'ok')
+												{
+													_cb(response_json)
+												}
+												else _cb(response_data);
+
+												//console.log(response_json);
+												
+												}
+										);								
+								}
+						);
+						
+			//---------------------------------------//
+			
+			http_request.on
+				(
+					'socket', 
+					function (socket) 
+						{
+						socket.setTimeout( 60 * 60 * 1000 );  
+						socket.on
+							(
+								'timeout', 
+								function() 
+									{
+									http_request.abort();
+									}
+							);
+						}
+				);
+			
+			http_request.on
+				(	
+					'error', 
+					function ( error ) // Error handling here
+						{
+						console.log( output_prefix, "http_request.on('error'):", error );
+						
+						html = html.replace( /_INNER_HTML_/g, "ERROR: "+error );
+						
+						var date_end = new Date();
+						console.log( output_prefix, "[app.post('/')] END ("+date_end.toUTCString()+")" );										
+						app_response.send( html );
+						}
+				);
+				
+			//---------------------------------------//
+						
+			http_request.write( req_data ); //This is the data we are posting, it needs to be a string or a buffer					
+			http_request.end();
+
+//---------------------------------------//
+}
+
+// ------------------------------------------------------------- //
+//   CONSTANTS   //
+
+var html = '<!DOCTYPE html>\n';
+	html += '<html>\n';
+	html += '<body style="background-color: rgb(225,230,235);" >\n';
+	html += '  <h1>Face verification</h1>\n';
+	html += '  <form method=\"post\" enctype=\"multipart/form-data\" action=\"/upload\">\n';
+	html += '     <img src=\"/tmp/undef.png\"/>\n'
+    html += '     <input type=\"file\" name=\"left_image\">\n'
+    html += '     <img src=\"/tmp/undef.png\"/>\n'
+    html += '     <input type=\"file\" name=\"right_image\"></br></br>\n'
+    html += '     <input type=\"submit\" value=\"Submit\">\n';
+	html += '  </form>\n';
+	html += '</body>\n';
+	html += '</html>';
+
+var req_web_service = 
+	{ 
+	address:	//'asmcocr.dsd.ro', 
+				'as-imgproc2.dmzexdc01.bitdefender.biz',
+	port: 5000 
+	};
+var output_prefix = '[RecognitionServer]';
+var EXPRESS_VERSION = null;
+
+// ------------------------------------------------------------- //
+
+var global_file_index = 0;
+
+function getUpdatedHtml(left_img, l_json, right_img, r_json, _cb)
+	{
+	// save images to disk
+	global_file_index ++;
+	var left_img_out  = 'tmp/left_img_out.'+(global_file_index)+"-"+((new Date()).getTime())+'.png';
+	var right_img_out = 'tmp/right_img_out.'+(global_file_index)+"-"+((new Date()).getTime())+'.png';
+	
+	if( ( l_json ) &&
+		( 'result' in l_json ) &&
+		( 'face' in l_json.result ) && 
+		( 'image_base64' in l_json.result.face ) )
+		{
+		fs.writeFileSync( left_img_out,  new Buffer( l_json.result.face.image_base64, 'base64') );
+		}
+	else{
+		//TODO
+		}
+		
+	if( ( r_json ) &&
+		( 'result' in r_json ) &&
+		( 'face' in r_json.result ) && 
+		( 'image_base64' in r_json.result.face ) )
+		{
+		fs.writeFileSync( right_img_out, new Buffer( r_json.result.face.image_base64, 'base64') );
+		}
+	else{
+		//TODO
+		}
+		
+
+	// verify recognition/verification
+	var input1;
+	var input2;
+	var input = [];
+	var img_crop_html = '';
+	var img_reco_html = '';
+	if( ( l_json ) &&
+		( r_json ) &&
+		( 'result' in l_json ) &&
+		( 'result' in r_json ) &&
+		( 'face' in l_json.result ) && 
+		( 'face' in r_json.result ) && 
+		('fd' in l_json.result.face ) &&
+		('fd' in r_json.result.face ) &&
+		( l_json.result.face.fd.length >= 1 ) && 
+		( r_json.result.face.fd.length >= 1 ) )
+		{
+		input1 = l_json.result.face.fd[0].projection;
+		input2 = r_json.result.face.fd[0].projection;
+		
+		//console.log( "face1=", JSON.stringify( l_json.result.face.fd[0] ) );
+		//console.log( "face2=", JSON.stringify( r_json.result.face.fd[0] ) );
+		
+		input = l_json.result.face.fd[0].projection;
+		input = input.concat( r_json.result.face.fd[0].projection );
+
+		for( var i = 0; i < l_json.result.face.fd.length; i++ )
+			{
+			var left_img_out_crop = 'tmp/left_img_out_crop' + i + '.' +(global_file_index)+"-"+((new Date()).getTime())+ '.png';
+			fs.writeFileSync( left_img_out_crop,  new Buffer( l_json.result.face.fd[i].image_base64, 'base64'));	
+			img_crop_html += '<img id="crop_left"  src = \"'+left_img_out_crop+'\" style=\"width: 256px;\" />\n';
+			
+			var left_img_out_reco = 'tmp/left_img_out_reco' + i + '.' +(global_file_index)+"-"+((new Date()).getTime())+ '.png';
+			if( 'reconstruction' in l_json.result.face.fd[i] )
+				fs.writeFileSync( left_img_out_reco,  new Buffer( l_json.result.face.fd[i].reconstruction, 'base64'));	
+			img_reco_html += '<img id="reco_left"  src = \"'+left_img_out_reco+'\" style=\"width: 256px;\" />\n';
+			
+			break;
+			}
+
+		for( var i = 0; i < r_json.result.face.fd.length; i++ )
+			{
+			var right_img_out_crop = 'tmp/right_img_out_crop' + i + '.' +(global_file_index)+"-"+((new Date()).getTime())+'.png';
+			fs.writeFileSync( right_img_out_crop,  new Buffer( r_json.result.face.fd[i].image_base64, 'base64'));
+			img_crop_html += '<img id="crop_right" src = \"'+right_img_out_crop+'\" style=\"width: 256px;\" />\n';
+			
+			var right_img_out_reco = 'tmp/right_img_out_reco' + i + '.' +(global_file_index)+"-"+((new Date()).getTime())+'.png';
+			if( 'reconstruction' in r_json.result.face.fd[i] )
+				fs.writeFileSync( right_img_out_reco,  new Buffer( r_json.result.face.fd[i].reconstruction, 'base64'));
+			img_reco_html += '<img id="reco_right" src = \"'+right_img_out_reco+'\" style=\"width: 256px;\" />\n';
+			
+			break;
+			}			
+		}
+		
+	server_log( "NNet input size:  " + input.length);
+	// var nnet_output = addon_ocr.NeuralNetworkClassify( "NetID", input );
+
+
+	if(input1 && input2)
+	{
+	 calssifiyRequest(input1, input2, function(response)
+	 {
+			server_log( "nnet output:" + JSON.stringify(response));
+			var html = '<!DOCTYPE html>\n';
+			html += '<html>\n';
+			html += '<body style="background-color: rgb(225,230,235);" >\n';
+			
+			html += '<script>\n';
+			html += '	function select_onchange( element )\n';
+			html += '		{\n';
+			html += '		console.log( element.value );\n';
+			html += '		document.getElementById("crop_left").style = "width: "+element.value+";";\n';
+			html += '		document.getElementById("crop_right").style = "width: "+element.value+";"\n';
+			html += '		document.getElementById("reco_left").style = "width: "+element.value+";";\n';
+			html += '		document.getElementById("reco_right").style = "width: "+element.value+";"\n';
+			html += '		}\n';
+			html += '</script>\n';
+			
+			html += '<h1>Face verification</h1>\n';
+			
+			html += '<img src=\"'+left_img_out+'\" />\n';
+		    html += '<img src=\"'+right_img_out+'\" />\n';
+
+			html += '<hr>\n';
+			
+			var score = "";
+
+			if(response.status == 'ok' &&  response.result)
+				{
+				score = response.result[1];
+				}
+			else{
+				score = response.status_message;
+				}
+
+			
+		    html += '     <p><font size="5">Face verification score: <font color="red">' + ( score * 100.0 ).toFixed(2) + '</font>% ('+( ( score >= 0.75 ) ? ( "same" ): ( ( score <= 0.25 ) ? ( "different" ) : ( score >= 0.5 ? "undef_same" : "undef_different" ) ) )+') </font></p>\n';    
+
+			html += '<hr>';
+			
+			html += 'CROPS: \n';
+			html += '<select onchange="select_onchange(this)" >\n';
+			html += '	<option value="auto">original size</option>\n';
+			html += '	<option value="128px">resize to 128x128</option>\n';
+			html += '	<option value="256px" selected>resize to 256x256</option>\n';
+			html += '	<option value="512px">resize to 512x512</option>\n';
+			html += '</select>\n';
+			
+			html += '<br>\n';
+			
+		    html += img_crop_html;
+			
+			html += '<br>\n';
+			
+			html += img_reco_html;
+			
+			html += '</body>\n';
+			html += '</html>\n';
+			
+			//return html;
+			_cb(html);
+			});
+		}
+		else
+		{
+			_cb("Detections not found");
+		}
+	}
+
+function server_log( msg )
+	{
+	var date = new Date();
+	console.log( '[' + date.toUTCString() + '] ' + output_prefix + msg );
+	}
+
+function detect_faces( img, _cb )
+	{
+	server_log('Send request for :' + img);
+	var base16be = fs.readFileSync( img ).toString('hex');
+
+	//////////////////////////////////////
+	var face_req_data = JSON.stringify(
+				{
+							'requestVersion' : 'v1' ,
+							'priority' : 'high' ,
+							'inputImage' : 
+								{
+								'data' : base16be ,
+								'format' : 'base16be'
+								},
+							'settings':
+								{
+								'image': true,
+								'face':
+									{
+									//'detector' : 'FACE_FRONTAL_2015_09_24_TREE_RT_fast', // doar pt DEMO !!! trebuie comentata linia asta dupa
+									'mark_tags' : true,
+									'crop_tags' : true,
+									'projector' : 'eigenfaces_2015_11_04',
+									'reconstruction' : true
+									}
+								}
+				}
+			);
+
+	//////////////////////////////////////
+	var http_request_options = 
+			{
+			  host: req_web_service.address
+			, port: req_web_service.port
+			, method: 'POST'
+			, path: '/'
+			, headers:	{ 
+						  'Content-Type' : 'application/json'
+						, 'Content-Length' : Buffer.byteLength( face_req_data, 'utf8' )
+						}
+			};
+
+	//////////////////////////////////////	
+	var http_request = 
+			http.request(	http_request_options , 
+							function ( response ) 
+								{
+								server_log( response.statusCode);
+								server_log( 'HEADERS: ' + JSON.stringify(response.headers));
+								
+								var response_data = '';
+								  
+								response.on(	'data', 
+												function( chunk ) 
+													{
+													response_data += chunk;
+													}
+											);
+
+								response.on(	'end', 
+												function () 
+													{
+													var response_json = JSON.parse( response_data );
+													server_log( "response_data : " + response_json.status );
+													_cb(null, response_json);
+													}
+											);								
+								
+								response.on(
+											'error',
+											function(err)
+												{
+												server_log( 'Request error with message: ' + err );
+												_cb( err );
+												}
+											);
+								}
+							);
+		
+	http_request.on
+		(
+			'socket', 
+			function( socket ) 
+				{
+				socket.setTimeout( 60 * 60 * 1000 );  
+				socket.on
+					(
+						'timeout', 
+						function() 
+							{
+							console.log( "ERROR: http_request.on('soket'/'timeout'): abort" );
+							http_request.abort();
+							_cb( 'request(on).soket(on).timeout' );
+							}
+					);
+				}
+		);
+	
+	http_request.on
+		(	
+			'error', 
+			function ( error ) // Error handling here
+				{
+				console.log( "ERROR: http_request.on('error'):", error );
+				_cb( error );
+				}
+		);
+							
+	http_request.write( face_req_data ); //This is the data we are posting, it needs to be a string or a buffer					
+	http_request.end();
+	}
+
+function check_json( json )
+	{
+	if(    ( json )
+		&& ( 'status' in json )
+		&& ( json.status )
+		&& ( "ok" == json.status )
+		&& ( 'result' in json )
+		&& ( json.result )
+		&& ( 'face' in json.result )
+		&& ( json.result.face )
+		&& ( 'image' in json.result )
+		)
+		{
+		server_log('Response json is OK');
+		return 0;
+		}
+	else{
+		server_log('Response json is not OK' + JSON.stringify(json));
+		return -1;
+		}	
+	}
+
+function get_err_res( json )
+	{	
+	var html = '<!DOCTYPE html>\n';
+	html += '<html>\n';
+	html += '<body style="background-color: rgb(225,230,235);" >\n';
+	html += '  <h1>Face verification</h1>\n';	
+	html += '  <form method=\"post\" enctype=\"multipart/form-data\" action=\"/upload\">\n';
+    html += '     <input type=\"file\" name=\"left_image\">\n';
+    html += '     <input type=\"file\" name=\"right_image\"></br></br>\n'
+    html += '     <input type=\"submit\" value=\"Submit\">\n';
+	html += '  </form>\n';
+	html += ' <p> Web request error with response : </p>\n';
+	html += ' <pre>' + JSON.stringify(json) + '</pre>\n';
+	html += '</body>\n';
+	html += '</html>';
+	return html;
+	}
+
+var app = express();
+
+if( 'configure' in app )
+	{ // EXPRESS Version 3.x
+	EXPRESS_VERSION = 3;
+	app.configure
+		(
+		function()
+			{
+			app.use( express.bodyParser() );
+			
+			app.use( app.router );
+
+			app.use( "/tmp", express.static( "/tmp") );
+			
+			app.use( express.static( __dirname + '/' ) );
+						
+			//app.use( express.static( __dirname + '/' ) );
+			
+			app.use( express.errorHandler() );
+			}
+		);
+	}
+else{ // EXPRESS Version 4.0
+	EXPRESS_VERSION = 4;
+	//var bodyParser = require('body-parser');
+	//app.use( bodyParser.json( {limit: '100mb'} ) );
+	//app.use( bodyParser.urlencoded( {limit: '100mb'} ) );
+
+	var busboy = require('connect-busboy');
+	app.use(busboy()); 
+	app.use( "/tmp", express.static( "/tmp") );
+			
+	app.use( express.static( __dirname + '/' ) );
+			
+	var errorHandler = require('errorhandler');
+			
+	app.use( errorHandler() );
+	}
+
+
+// app.use(express.bodyParser({uploadDir:'tmp'}));
+
+app.get(	'/', 
+			function( req, res ) 
+				{
+				server_log('[app.get(\'/\')] START' );
+
+				res.send( html );
+
+				server_log( '[app.get(\'/\')] END' );
+				}
+		);
+
+function doPostExpress3( req, res )
+	{
+	server_log(JSON.stringify(req.files));
+	
+	var left_img = req.files.left_image.path;
+	var right_img = req.files.right_image.path;
+
+	server_log( 'Uploaded ' + left_img );
+	server_log( 'Uploaded ' + right_img );
+
+	// aici facem requestu
+	req.connection.setTimeout( 60 * 60 * 1000 );
+	
+	var left_img_resp_json = null;
+	var right_img_resp_json = null;
+	
+	var res_send = false;
+	
+	detect_faces(	left_img, 
+					function ( err, l_json )
+						{
+						if( ( -1 == check_json(l_json) ) || ( err ) )
+							{
+							server_log( 'ERROR: L_JSON or err=' + err);
+							
+							if( false == res_send )
+								{
+								res_send = true;
+								res.send( get_err_res(l_json) );
+								}
+							}
+						else{
+							left_img_resp_json = l_json;
+							if( ( right_img_resp_json ) &&
+								( false == res_send ) )
+								{
+								res_send = true;
+								getUpdatedHtml(left_img, left_img_resp_json, right_img, right_img_resp_json , function(html)
+								{
+									res.send(html);
+								});								
+								//res.send( getUpdatedHtml( left_img, left_img_resp_json, right_img, right_img_resp_json ) );
+								} 
+							}	
+						}
+					);
+	
+	detect_faces(	right_img, 
+					function ( err, r_json )
+						{
+						if( ( -1 == check_json(r_json) ) || ( err ) )
+							{
+							server_log( 'ERROR: R_JSON or err=' + err);
+							
+							if( false == res_send )
+								{
+								res_send = true;
+								res.send( get_err_res(r_json) );								
+								}
+							}
+						else{
+							right_img_resp_json = r_json;
+							if( ( left_img_resp_json ) &&
+								( false == res_send ) )
+								{
+								res_send = true;
+								getUpdatedHtml(left_img, left_img_resp_json, right_img, right_img_resp_json , function(html)
+								{
+									res.send(html);
+								});
+								//res.send( getUpdatedHtml(left_img, left_img_resp_json, right_img, right_img_resp_json ) );								
+								}
+							}
+						}
+					);
+	}
+
+function doPostExpress4( req, res )
+	{
+	var files = { left_image : null, right_image: null };
+	var fstream;
+    req.pipe(req.busboy);
+    req.busboy.on(	'file', 
+					function (fieldname, file, filename) 
+						{
+						server_log("Uploading: filename: " + filename + ' fieldname: ' + fieldname); 
+						fstream = fs.createWriteStream(__dirname + '/files/' + filename);
+						file.pipe(fstream);
+						fstream.on(	'close', 
+									function () 
+										{
+										server_log('Received file: ' + filename);
+										if( files.left_image == null )
+											{
+											files.left_image = { path: 'files/' + filename };
+											server_log('Added left file');
+											}
+										else{
+											if( files.right_image == null )
+												{
+												server_log('Added right file');
+												files.right_image = { path: 'files/' + filename };
+												req.files = files;
+												doPostExpress3(req, res);
+												}
+											}
+										}
+									);
+						}
+				);
+				
+    req.busboy.on(	'error', 
+					function ( error )
+						{
+						server_log('Busboy error: ' + error);
+						res.send( 'Internal error: busboy' );
+						}
+					);
+
+    //res.send('Salut');
+	}
+
+
+app.post(	'/upload', 
+			function( req, res ) 
+				{
+				switch( EXPRESS_VERSION )
+					{
+					case 3: 
+						{
+						return doPostExpress3( req, res );
+						}
+					case 4: 
+						{
+						return doPostExpress4( req, res );
+						}
+					default:
+						{
+						server_log('Invalid express version');						
+						res.send('Invalid express version');
+						}	
+					}
+				}
+		);
+
+var server = app.listen(	4400, 
+							function() 
+								{
+								var host = server.address().address;
+								var port = server.address().port;
+								console.log( 'Recognition server listening at http://%s:%s', host, port );
+								}
+						);

@@ -1,0 +1,11 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	symlinks = false
+	ignorecase = true
+	hideDotFiles = dotGitOnly
+[svn-remote "svn"]
+	url = https://scc.dsd.ro/svn/antispamoperations/trunk/ImageProcessing/FaceVerificationWebServer
+	fetch = :refs/remotes/git-svn

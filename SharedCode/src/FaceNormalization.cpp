@@ -148,8 +148,8 @@ namespace face_ver {
 			util::createDirectory(outputPath);
 
 			// write faces one by one
-			std::string fullName = imagePath.substr(imagePath.find_last_of("/\\") + 1);
-			std::string imageName = fullName.substr(0, fullName.find_last_of("."));
+			std::string fullName       = imagePath.substr(imagePath.find_last_of("/\\") + 1);
+			std::string imageName      = fullName.substr(0, fullName.find_last_of("."));
 			std::string imageExtension = fullName.substr(fullName.find_last_of(".") + 1);
 
 			std::vector<string> outputPaths;

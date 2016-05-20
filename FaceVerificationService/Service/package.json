@@ -1,0 +1,23 @@
+{
+  "name": "face_verification_service",
+  "version": "1.0.0",
+  "description": "face verification service -- the simple version",
+  "main": "verification-service.js",
+  "scripts": {
+    "test": "node verification-service.js"
+  },
+  "keywords": [
+    "face-verification",
+    "node-service"
+  ],
+  "author": "gleotescu",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect-busboy": "0.0.2",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "ffi": "^2.0.0",
+    "ref": "^1.3.2"
+  }
+}

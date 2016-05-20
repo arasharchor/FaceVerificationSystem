@@ -205,7 +205,7 @@ OpenCV_3RDPARTY_LIB_DIR_OPT:PATH=D:/Work/FaceVerificationSystem/Dependencies/ope
 OpenCV_CONFIG_PATH:FILEPATH=D:/Work/FaceVerificationSystem/Dependencies/opencv/build
 
 //The directory containing a CMake configuration file for OpenCV.
-OpenCV_DIR:PATH=D:/Work/FaceVerificationSystem/Dependencies/opencv/build
+OpenCV_DIR:PATH=D:\Work\FaceVerificationSystem\Dependencies\opencv\build
 
 OpenCV_FOUND:BOOL=TRUE
 

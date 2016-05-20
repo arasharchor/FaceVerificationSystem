@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -56,25 +56,25 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-    <PropertyGroup>
-      <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\Debug\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dlib.dir\Debug\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dlib</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\Release\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dlib.dir\Release\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dlib</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\MinSizeRel\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">dlib.dir\MinSizeRel\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">dlib</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-      <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\RelWithDebInfo\</OutDir>
-      <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">dlib.dir\RelWithDebInfo\</IntDir>
-      <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">dlib</TargetName>
-      <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
-    </PropertyGroup>
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dlib.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">dlib</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dlib.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">dlib</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">dlib.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">dlib</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\dlib_build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">dlib.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">dlib</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;C:\Users\gleotescu\AppData\Local\Continuum\Anaconda2\Library\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -120,9 +120,10 @@
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;DLIB_PNG_SUPPORT;DLIB_JPEG_SUPPORT;NDEBUG;DLIB_HAVE_SSE2;DLIB_JPEG_STATIC;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DLIB_PNG_SUPPORT;DLIB_JPEG_SUPPORT;DLIB_JPEG_STATIC;DLIB_PNG_STATIC;NDEBUG;DLIB_HAVE_SSE2;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;DLIB_PNG_SUPPORT;DLIB_JPEG_SUPPORT;NDEBUG;DLIB_HAVE_SSE2;DLIB_JPEG_STATIC;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -154,7 +155,8 @@
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;DLIB_PNG_SUPPORT;DLIB_JPEG_SUPPORT;NDEBUG;DLIB_HAVE_SSE2;DLIB_JPEG_STATIC;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;DLIB_PNG_SUPPORT;DLIB_JPEG_SUPPORT;NDEBUG;DLIB_HAVE_SSE2;DLIB_JPEG_STATIC;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -261,100 +263,100 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\base64\base64_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bigint\bigint_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bigint\bigint_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bit_stream\bit_stream_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_decoder\entropy_decoder_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_decoder\entropy_decoder_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_encoder\entropy_encoder_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_encoder\entropy_encoder_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\md5\md5_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\tokenizer\tokenizer_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\unicode\unicode.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\data_io\image_dataset_metadata.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockets\sockets_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bsp\bsp.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\dir_nav\dir_nav_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\dir_nav\dir_nav_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\dir_nav\dir_nav_extensions.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\linker\linker_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\logger\extra_logger_headers.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\logger\logger_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\logger\logger_config_file.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\misc_api\misc_api_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\misc_api\misc_api_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockets\sockets_extensions.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockets\sockets_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockstreambuf\sockstreambuf.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockstreambuf\sockstreambuf_unbuffered.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\server\server_kernel.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\server\server_iostream.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\server\server_http.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\multithreaded_object_extension.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threaded_object_extension.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threads_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threads_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threads_kernel_shared.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\thread_pool_extension.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\timer\timer.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\stack_trace.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\fonts.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\widgets.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\drawable.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\canvas_drawing.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\style.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\base_widgets.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_core\gui_core_kernel_1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_core\gui_core_kernel_2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_loader\png_loader.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_saver\save_png.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcomapi.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdapimin.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdapistd.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdatasrc.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdcoefct.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdcolor.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jddctmgr.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdhuff.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdinput.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmainct.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmarker.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmaster.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmerge.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdphuff.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdpostct.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdsample.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jerror.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctflt.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctfst.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctint.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctred.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jmemmgr.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jmemnobs.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jquant1.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jquant2.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jutils.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcapimin.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdatadst.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcparam.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcapistd.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcmarker.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcinit.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcmaster.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcdctmgr.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jccoefct.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jccolor.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jchuff.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcmainct.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcphuff.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcprepct.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcsample.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jfdctint.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jfdctflt.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jfdctfst.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_loader\jpeg_loader.cpp"  />
-    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_saver\save_jpeg.cpp"  />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\base64\base64_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bigint\bigint_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bigint\bigint_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bit_stream\bit_stream_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_decoder\entropy_decoder_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_decoder\entropy_decoder_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_encoder\entropy_encoder_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\entropy_encoder\entropy_encoder_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\md5\md5_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\tokenizer\tokenizer_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\unicode\unicode.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\data_io\image_dataset_metadata.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockets\sockets_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\bsp\bsp.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\dir_nav\dir_nav_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\dir_nav\dir_nav_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\dir_nav\dir_nav_extensions.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\linker\linker_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\logger\extra_logger_headers.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\logger\logger_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\logger\logger_config_file.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\misc_api\misc_api_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\misc_api\misc_api_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockets\sockets_extensions.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockets\sockets_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockstreambuf\sockstreambuf.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\sockstreambuf\sockstreambuf_unbuffered.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\server\server_kernel.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\server\server_iostream.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\server\server_http.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\multithreaded_object_extension.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threaded_object_extension.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threads_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threads_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\threads_kernel_shared.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\threads\thread_pool_extension.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\timer\timer.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\stack_trace.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\fonts.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\widgets.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\drawable.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\canvas_drawing.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\style.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_widgets\base_widgets.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_core\gui_core_kernel_1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\gui_core\gui_core_kernel_2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_loader\png_loader.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_saver\save_png.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcomapi.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdapimin.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdapistd.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdatasrc.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdcoefct.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdcolor.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jddctmgr.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdhuff.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdinput.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmainct.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmarker.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmaster.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdmerge.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdphuff.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdpostct.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdsample.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jerror.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctflt.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctfst.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctint.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jidctred.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jmemmgr.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jmemnobs.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jquant1.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jquant2.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jutils.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcapimin.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jdatadst.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcparam.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcapistd.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcmarker.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcinit.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcmaster.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcdctmgr.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jccoefct.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jccolor.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jchuff.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcmainct.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcphuff.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcprepct.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jcsample.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jfdctint.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jfdctflt.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\external\libjpeg\jfdctfst.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_loader\jpeg_loader.cpp" />
+    <ClCompile Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\image_saver\save_jpeg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/ZERO_CHECK.vcxproj">

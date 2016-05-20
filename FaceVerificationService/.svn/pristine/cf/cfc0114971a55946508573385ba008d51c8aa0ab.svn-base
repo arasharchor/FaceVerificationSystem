@@ -1,0 +1,5 @@
+; This file is used internally by git-svn
+; You should not have to edit it
+[svn-remote "svn"]
+	reposRoot = https://scc.dsd.ro/svn/antispamoperations
+	uuid = ce08af1b-3d20-0410-8d82-8693fa182c21
