@@ -3,9 +3,9 @@
 
 namespace face_ver {
 	void normalize2D(
-		dlib::array2d<rgb_pixel>& img,
-		std::vector<full_object_detection>& shapes,
-		dlib::array<array2d<rgb_pixel>>& faces,
+		dlib::array2d<dlib::rgb_pixel>& img,
+		std::vector<dlib::full_object_detection>& shapes,
+		dlib::array<dlib::array2d<dlib::rgb_pixel>>& faces,
 		bool extractBackground)
 	{
 		// Average positions of face points 17-67
@@ -18,7 +18,7 @@ namespace face_ver {
 			0.490127, 0.423532, 0.338094, 0.290379, 0.428096, 0.490127, 0.552157, 0.689874,
 			0.553364, 0.490127, 0.42689
 		};
-		
+
 		static const double mean_face_shape_y[] = {
 			0.106454, 0.038915, 0.0187482, 0.0344891, 0.0773906, 0.0773906, 0.0344891,
 			0.0187482, 0.038915, 0.106454, 0.203352, 0.307009, 0.409805, 0.515625, 0.587326,
@@ -55,15 +55,11 @@ namespace face_ver {
 			fillConvexPoly(mask, &ROI_Poly[0], ROI_Poly.size(), cv::Scalar(255, 255, 255), 8, 0);
 
 			// Create new image to store result
-			cv::Mat originalImage = dlib::toMat<dlib::array2d<rgb_pixel>>(img).clone();
+			cv::Mat originalImage = dlib::toMat<dlib::array2d<dlib::rgb_pixel>>(img).clone();
 			cv::Mat imageDest(originalImage.size(), CV_8UC3, cv::Scalar(0, 0, 0));
 			originalImage.copyTo(imageDest, mask);
 
-			cv_image<bgr_pixel> image(imageDest);
-
-			// based on detected key points, rotate image and scale crop size
-			dlib::chip_details chipDetails = get_face_chip_details(shape, 250);
-
+			dlib::cv_image<dlib::bgr_pixel> image(imageDest);
 			double padding = 0.1;
 
 			std::vector<dlib::vector<double, 2> > from_points, to_points;
@@ -83,7 +79,7 @@ namespace face_ver {
 				to_points.push_back(shape.part(i));
 			}
 
-			const point_transform_affine tform = dlib::find_similarity_transform(from_points, to_points);
+			const dlib::point_transform_affine tform = dlib::find_similarity_transform(from_points, to_points);
 			dlib::vector<double, 2> p(1, 0);
 			p = tform.get_m() * p;
 
@@ -106,18 +102,18 @@ namespace face_ver {
 			dlib::drectangle faceRect = centered_drect(m, width, height);
 
 			// rotate image with angle. Use mass center as rotation point
-			rectangle rect;
+			dlib::rectangle rect;
 			rect += rotate_point(m, faceRect.tl_corner(), -angle);
 			rect += rotate_point(m, faceRect.tr_corner(), -angle);
 			rect += rotate_point(m, faceRect.bl_corner(), -angle);
 			rect += rotate_point(m, faceRect.br_corner(), -angle);
 
-			dlib::array2d<rgb_pixel> outImg;
+			dlib::array2d<dlib::rgb_pixel> outImg;
 			outImg.set_size(rect.height(), rect.width());
 
-			const matrix<double, 2, 2> R = rotation_matrix(angle);
-			point_transform_affine trans = point_transform_affine(R, -R*dcenter(get_rect(outImg)) + m);
-			transform_image(image, outImg, interpolate_quadratic(), trans);
+			const dlib::matrix<double, 2, 2> R = dlib::rotation_matrix(angle);
+			dlib::point_transform_affine trans = dlib::point_transform_affine(R, -R*dcenter(get_rect(outImg)) + m);
+			transform_image(image, outImg, dlib::interpolate_quadratic(), trans);
 
 			faces.push_back(outImg);
 		}

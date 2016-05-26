@@ -33,5 +33,4 @@ namespace face_ver {
 		std::vector<full_object_detection>& shapes,
 		dlib::array<array2d<rgb_pixel>>& faces,
 		bool removeBackground = true);
-
 }

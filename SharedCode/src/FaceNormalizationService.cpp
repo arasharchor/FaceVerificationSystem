@@ -4,11 +4,11 @@ namespace face_ver {
 	// static member definition
 	FaceNormalization FaceNormalizationSingleton::faceNorm;
 
-	int init(char* landmarksModelPath)
+	int init(char* landmarksModelPath, char* model3DPath)
 	{
 		try {
 
-			FaceNormalizationSingleton::initInstance(landmarksModelPath);
+			FaceNormalizationSingleton::initInstance(landmarksModelPath, model3DPath);
 
 			return 0;
 		}
@@ -22,7 +22,7 @@ namespace face_ver {
 	{
 		FaceNormalization faceNorm = FaceNormalizationSingleton::getInstance();
 		
-		vector<string> normalizedFaces = faceNorm.normalizeImage(path, outputPath, mode);
+		std::vector<std::string> normalizedFaces = faceNorm.normalizeImage(path, outputPath, mode);
 		
 		string acc;
 		if (normalizedFaces.size() > 0)
@@ -39,7 +39,7 @@ namespace face_ver {
 	{
 		FaceNormalization faceNorm = FaceNormalizationSingleton::getInstance();
 		
-		vector<string> normalizedFaces = faceNorm.normalizeImage(setPath, outputPath, mode);
+		std::vector<std::string> normalizedFaces = faceNorm.normalizeImage(setPath, outputPath, mode);
 		string acc;
 
 		if (normalizedFaces.size() > 0)

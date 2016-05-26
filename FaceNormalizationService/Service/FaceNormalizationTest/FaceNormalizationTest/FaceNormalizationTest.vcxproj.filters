@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="SharedCode">
+      <UniqueIdentifier>{f6bb0cef-c3ae-4a15-a177-00365d77bc44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SharedCode\src">
+      <UniqueIdentifier>{bc4d7b01-f879-4574-9e42-32927efc4283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SharedCode\headers">
+      <UniqueIdentifier>{5356f2ba-61d7-4c28-ba7a-8b1d3cc3340a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\2DNormalization.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalization.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalizationService.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\LandmarksDetection.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\Util.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\3DNormalization.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\2DNormalization.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\FaceNormalization.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\FaceNormalizationService.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\LandmarksDetection.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\Util.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\3DNormalization.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
