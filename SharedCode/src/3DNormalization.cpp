@@ -72,9 +72,22 @@ namespace face_ver {
 			printMat("rot camera matrix", rotCameraMatrix);
 
 			
-			cv::Mat projectedModel(68, 2, CV_32F);
-			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projectedModel);
-			printMat("projectedModel", projectedModel);
+			std::vector<cv::Point2f> projModel;
+			std::vector<cv::Point3f> model;
+		    cv::Mat projectedModel;
+
+			for (int i = 0; i < model3D.rows; i++)
+				model.push_back(cv::Point3f(model3D.at<float>(i, 0), model3D.at<float>(i, 1), model3D.at<float>(i, 2)));
+
+			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projModel);
+			
+			for (int i = 0; i < projModel.size(); i++)
+				std::cout << projModel[i].x << ", ";
+			std::cout << std::endl;
+
+			for (int i = 0; i < projModel.size(); i++)
+				std::cout << projModel[i].y << ", ";
+			std::cout << std::endl;
 			
 			
 			// compute euler angles
