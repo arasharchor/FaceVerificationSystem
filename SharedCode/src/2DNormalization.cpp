@@ -88,6 +88,7 @@ namespace face_ver {
 
 			// rotation parameters.
 			double angle = std::atan2(p.y(), p.x());
+			std::cout << angle << std::endl;
 
 			// we use as width/height the scale value estimated by the similarity transform
 			const double scale = length(p);

@@ -1,6 +1,17 @@
 #include "3DNormalization.h"
 
 namespace face_ver {
+	static void printMat(char* name, cv::Mat mat)
+	{
+		std::cout << name << std::endl;
+		for (int i = 0; i < mat.size().height; i++) {
+			for (int j = 0; j < mat.size().width; j++) {
+				std::cout << mat.at<float>(i, j) << " ";
+			}
+			std::cout << std::endl;
+		}
+		std::cout << std::endl;
+	}
 
 	void normalize3D(
 		dlib::array2d<rgb_pixel>& img,
@@ -49,14 +60,23 @@ namespace face_ver {
 			}
 
 			// estimate 3D - 2D transformation
-			std::cout << model3D.type() << " " << points2D.type() << std::endl;
 			cv::Mat rvec, tvec;
 			bool res = cv::solvePnP(model3D, points2D, cameraMat, cv::Mat(), rvec, tvec, false);
+
+			printMat("rvec", rvec);
+			printMat("tvec", tvec);
 
 			// transform rotation matrix
 			cv::Mat jacobian, rotCameraMatrix;
 			cv::Rodrigues(rvec, rotCameraMatrix, jacobian);
+			printMat("rot camera matrix", rotCameraMatrix);
 
+			
+			cv::Mat projectedModel(68, 2, CV_32F);
+			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projectedModel);
+			printMat("projectedModel", projectedModel);
+			
+			
 			// compute euler angles
 			cv::Vec3d eulerAngles;
 			cv::Mat cameraMat, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ;
@@ -74,11 +94,21 @@ namespace face_ver {
 				rotMatrixZ,
 				eulerAngles);
 
-			// print euler angles
-			std::cout << "yaw " << eulerAngles[0] << "\npitch " << eulerAngles[1] << "\nroll " << eulerAngles[2] << std::endl;
+			// project 3D model on points
+			
+			cv::Mat RR;
+			cv::Rodrigues(rvec, RR); // R is 3x3
 
-			// rotation parameters.
-			double angle = eulerAngles[2];
+			RR = RR.t();  // rotation of inverse
+			tvec = -RR * tvec; // translation of inverse
+
+			cv::Mat T(4, 4, RR.type()); // T is 4x4
+			T(cv::Range(0, 3), cv::Range(0, 3)) = RR * 1; // copies R into T
+			T(cv::Range(0, 3), cv::Range(3, 4)) = tvec * 1; // copies tvec into T
+			
+			
+			// rotation parameters -- transformed into radians
+			double angle = eulerAngles[2] * pi / 180;
 
 			// rectangle centered around the mass center of the face		
 			dlib::dpoint m = dlib::dpoint(0, 0);
