@@ -63,24 +63,45 @@ namespace face_ver {
 			cv::Mat rvec, tvec;
 			bool res = cv::solvePnP(model3D, points2D, cameraMat, cv::Mat(), rvec, tvec, false);
 
-			printMat("rvec", rvec);
-			printMat("tvec", tvec);
-
 			// transform rotation matrix
 			cv::Mat jacobian, rotCameraMatrix;
 			cv::Rodrigues(rvec, rotCameraMatrix, jacobian);
-			printMat("rot camera matrix", rotCameraMatrix);
-
 			
-			std::vector<cv::Point2f> projModel;
+			float projMatrixData[12] = { 
+				rotCameraMatrix.at<float>(0, 0), rotCameraMatrix.at<float>(0, 1), rotCameraMatrix.at<float>(0, 2), tvec.at<float>(0, 0),
+				rotCameraMatrix.at<float>(1, 0), rotCameraMatrix.at<float>(1, 1), rotCameraMatrix.at<float>(1, 2), tvec.at<float>(1, 0),
+				rotCameraMatrix.at<float>(2, 0), rotCameraMatrix.at<float>(2, 1), rotCameraMatrix.at<float>(2, 2), tvec.at<float>(2, 0)
+			};
+			
+			cv::Mat projMatrix = cv::Mat(3, 4, CV_32F, projMatrixData);
+			printMat("camera mat", cameraMat);
+
+			// create projection matrix
+
+
+			std::vector<cv::Point2f> projModel, defaultModel;
 			std::vector<cv::Point3f> model;
 		    cv::Mat projectedModel;
 
 			for (int i = 0; i < model3D.rows; i++)
 				model.push_back(cv::Point3f(model3D.at<float>(i, 0), model3D.at<float>(i, 1), model3D.at<float>(i, 2)));
 
-			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projModel);
+			cv::Mat zeroRVec = cv::Mat::zeros(1, 3, CV_32F);
+			cv::Mat zeroTVec = cv::Mat::zeros(1, 3, CV_32F);
 			
+			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projModel);
+			projectPoints(model3D, zeroRVec, zeroTVec, cameraMat, cv::Mat(), defaultModel);
+
+			for (int i = 0; i < projModel.size(); i++)
+				std::cout << projModel[i].x << ", ";
+			std::cout << std::endl;
+
+			for (int i = 0; i < projModel.size(); i++)
+				std::cout << projModel[i].y << ", ";
+			std::cout << std::endl << std::endl;
+
+			projModel = defaultModel;
+
 			for (int i = 0; i < projModel.size(); i++)
 				std::cout << projModel[i].x << ", ";
 			std::cout << std::endl;
@@ -93,12 +114,9 @@ namespace face_ver {
 			// compute euler angles
 			cv::Vec3d eulerAngles;
 			cv::Mat cameraMat, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ;
-			double* _r = rotCameraMatrix.ptr<double>();
-			double projMatrix[12] = { _r[0],_r[1],_r[2],0,
-				_r[3],_r[4],_r[5],0,
-				_r[6],_r[7],_r[8],0 };
-
-			decomposeProjectionMatrix(cv::Mat(3, 4, CV_64FC1, projMatrix), 
+			
+			decomposeProjectionMatrix(
+				projMatrix, 
 				cameraMat,
 				rotMatrix,
 				transVect,
@@ -107,6 +125,7 @@ namespace face_ver {
 				rotMatrixZ,
 				eulerAngles);
 
+			
 			// project 3D model on points
 			
 			cv::Mat RR;

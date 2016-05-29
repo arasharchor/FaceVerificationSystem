@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\413d09f6cae0433abb57583f2c4a9aeb\generate.stamp.rule">
+    <CustomBuild Include="C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\2f9f649940684f9d3470c5c0dee92ef2\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{0E259F8B-BA8B-320D-8E56-28A00D1728B5}</UniqueIdentifier>
+      <UniqueIdentifier>{765301E0-2E38-38CD-8729-E7E406F8179D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
