@@ -14,6 +14,9 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
+#include <opencv2/imgproc.hpp>
+#include <opencv2/video.hpp>
+#include <opencv2/imgcodecs.hpp>
 
 // std headers
 #include <chrono>
@@ -33,7 +36,7 @@ namespace face_ver {
 		dlib::array2d<rgb_pixel>& img,
 		std::vector<full_object_detection>& shapes,
 		dlib::array<array2d<rgb_pixel>>& faces,
-		cv::Mat& model3D,
-		cv::Mat& cameraMat,
+		cv::Mat_<double>& model3D,
+		cv::Mat_<double>& cameraMat,
 		bool extractBackground = true);
 }

@@ -13,7 +13,7 @@ int main()
 	face_ver::FaceNormalizationSingleton::initInstance(dlibModelPath, model3DPath);
 	face_ver::FaceNormalization faceNorm = face_ver::FaceNormalizationSingleton::getInstance();
 	
-	const char* inPath = "../samples/sample_1.jpeg";
+	const char* inPath = "../samples/sample_2.jpeg";
 	const char* outPath = "./results";
 	faceNorm.normalizeImage(inPath, outPath, 0);
 

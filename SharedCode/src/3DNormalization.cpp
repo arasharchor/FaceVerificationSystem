@@ -17,8 +17,8 @@ namespace face_ver {
 		dlib::array2d<rgb_pixel>& img,
 		std::vector<full_object_detection>& shapes,
 		dlib::array<array2d<rgb_pixel>>& faces,
-		cv::Mat& model3D,
-		cv::Mat& cameraMat,
+		cv::Mat_<double>& model3D,
+		cv::Mat_<double>& cameraMat,
 		bool extractBackground)
 	{
 		if (shapes.size() == 0)
@@ -52,35 +52,85 @@ namespace face_ver {
 			originalImage.copyTo(imageDest, mask);
 			cv_image<bgr_pixel> image(imageDest);
 
-			// store 2D points into a opencv matrix
-			cv::Mat points2D(shape.num_parts(), 2, CV_32F);
+			// store 2D points into an opencv matrix
+			cv::Mat_<double> points2D(cv::Size(2, shape.num_parts()));
 			for (int i = 0; i < shape.num_parts(); i++) {
-				points2D.at<float>(i, 0) = shape.part(i).x();
-				points2D.at<float>(i, 1) = shape.part(i).y();
+				points2D(i, 0) = shape.part(i).x();
+				points2D(i, 1) = shape.part(i).y();
 			}
 
 			// estimate 3D - 2D transformation
-			cv::Mat rvec, tvec;
+			cv::Mat_<double> rvec, tvec;
 			bool res = cv::solvePnP(model3D, points2D, cameraMat, cv::Mat(), rvec, tvec, false);
 
-			printMat("rvec", rvec);
-			printMat("tvec", tvec);
+			// empty trans vector
+			cv::Mat_<double> zeroTvec(3, 1, (double)0);
+			cv::Mat_<double> zeroCameraMat(3, 3, (double)0);
+			zeroCameraMat(0, 0) = zeroCameraMat(1, 1) = zeroCameraMat(2, 2) = 1;
 
-			// transform rotation matrix
-			cv::Mat jacobian, rotCameraMatrix;
-			cv::Rodrigues(rvec, rotCameraMatrix, jacobian);
-			printMat("rot camera matrix", rotCameraMatrix);
+			cv::Mat R;
+			cv::Rodrigues(rvec, R);
+			std::cout << R << std::endl;
 
+			cv::Mat projModel;
+			projectPoints(model3D, rvec, tvec, zeroCameraMat, cv::Mat(), projModel);
+			std::cout << projModel << std::endl;
+
+			// compute euler angles
+			cv::Vec3d eulerAngles;
+			cv::Mat cameraMat, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ;
 			
-			std::vector<cv::Point2f> projModel;
+			cv::Mat_<double> projMatrix;
+			cv::hconcat(R, tvec, projMatrix);
+			std::cout << projMatrix;
+					
+			decomposeProjectionMatrix(
+				projMatrix,
+				cameraMat,
+				rotMatrix,
+				transVect,
+				rotMatrixX,
+				rotMatrixY,
+				rotMatrixZ,
+				eulerAngles);
+
+			std::cout << eulerAngles << std::endl;
+
+			/*
+
+
+			std::vector<cv::Point2f> projModel, defaultModel;
 			std::vector<cv::Point3f> model;
-		    cv::Mat projectedModel;
+
 
 			for (int i = 0; i < model3D.rows; i++)
 				model.push_back(cv::Point3f(model3D.at<float>(i, 0), model3D.at<float>(i, 1), model3D.at<float>(i, 2)));
-
 			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projModel);
-			
+			printMat("tvec", tvec);
+
+			// find similarity transform
+			std::vector<dlib::vector<double, 2> > from_points, to_points;
+			for (int i = 0; i < shape.num_parts(); i++) {
+				from_points.push_back(shape.part(i));
+
+				dlib::vector<double, 2> p;
+				p.x() = projModel[i].x;
+				p.y() = projModel[i].y;
+				to_points.push_back(p);
+			}
+			const dlib::point_transform_affine tform = dlib::find_similarity_transform(from_points, to_points);
+			dlib::vector<double, 2> p(1, 0);
+			p = tform.get_m() * p;
+
+			const double scale = length(p);
+			std::cout << scale << std::endl;
+
+			cv::Mat zeroRvec(1, 3, CV_32F), zeroTvec(1, 3, CV_32F);
+			zeroRvec.setTo(cv::Scalar(0));
+			zeroTvec.setTo(cv::Scalar(0));
+			projectPoints(model3D, zeroRvec, tvec, cameraMat, cv::Mat(), defaultModel);
+
+			std::cout << "pojected model" << std::endl;
 			for (int i = 0; i < projModel.size(); i++)
 				std::cout << projModel[i].x << ", ";
 			std::cout << std::endl;
@@ -88,8 +138,16 @@ namespace face_ver {
 			for (int i = 0; i < projModel.size(); i++)
 				std::cout << projModel[i].y << ", ";
 			std::cout << std::endl;
-			
-			
+
+			std::cout << "my model" << std::endl;
+			for (int i = 0; i < points2Dv.size(); i++)
+				std::cout << points2Dv[i].x << ", ";
+			std::cout << std::endl;
+
+			for (int i = 0; i < points2Dv.size(); i++)
+				std::cout << points2Dv[i].y << ", ";
+			std::cout << std::endl;
+
 			// compute euler angles
 			cv::Vec3d eulerAngles;
 			cv::Mat cameraMat, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ;
@@ -98,7 +156,7 @@ namespace face_ver {
 				_r[3],_r[4],_r[5],0,
 				_r[6],_r[7],_r[8],0 };
 
-			decomposeProjectionMatrix(cv::Mat(3, 4, CV_64FC1, projMatrix), 
+			decomposeProjectionMatrix(cv::Mat(3, 4, CV_64FC1, projMatrix),
 				cameraMat,
 				rotMatrix,
 				transVect,
@@ -108,7 +166,7 @@ namespace face_ver {
 				eulerAngles);
 
 			// project 3D model on points
-			
+
 			cv::Mat RR;
 			cv::Rodrigues(rvec, RR); // R is 3x3
 
@@ -118,12 +176,14 @@ namespace face_ver {
 			cv::Mat T(4, 4, RR.type()); // T is 4x4
 			T(cv::Range(0, 3), cv::Range(0, 3)) = RR * 1; // copies R into T
 			T(cv::Range(0, 3), cv::Range(3, 4)) = tvec * 1; // copies tvec into T
-			
-			
+
+
 			// rotation parameters -- transformed into radians
+			std::cout << eulerAngles[0] << " " << eulerAngles[1] << " " << eulerAngles[2] << std::endl;
+
 			double angle = eulerAngles[2] * pi / 180;
 
-			// rectangle centered around the mass center of the face		
+			// rectangle centered around the mass center of the face
 			dlib::dpoint m = dlib::dpoint(0, 0);
 			for (int i = 0; i < shape.num_parts(); i++)
 				m += shape.part(i);
@@ -145,6 +205,7 @@ namespace face_ver {
 			transform_image(image, outImg, interpolate_quadratic(), trans);
 
 			faces.push_back(outImg);
+			*/
 		}
 	}
 }

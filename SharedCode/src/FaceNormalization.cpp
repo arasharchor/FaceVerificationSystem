@@ -6,14 +6,10 @@ namespace face_ver {
 		std::string imagePath(path);
 		std::string imageName = util::getLeaf(path);
 
-		std::cerr << "loading image " << imagePath << std::endl;
-		
 		// load image
 		dlib::array2d<dlib::rgb_pixel> img;
 		dlib::load_image(img, imagePath.c_str());
 
-		std::cerr << "loaded image " << imagePath << std::endl;
-		
 		// detect landmarks
 		std::vector<dlib::full_object_detection> shapes;
 		landmarksDetector.detectLandmarks(img, shapes);
@@ -47,7 +43,6 @@ namespace face_ver {
 			return outputPaths;
 		}
 		else {
-			// 2D NORMALIZATION
 			dlib::array<dlib::array2d<dlib::rgb_pixel>> faces;
 			normalize3D(img, shapes, faces, model3D, cameraMat);
 

@@ -24,11 +24,11 @@ namespace face_ver {
 				cv::FileStorage fs;
 				fs.open(model3DPath, cv::FileStorage::READ);
 				
-				cv::Mat model3D;
+				cv::Mat_<double> model3D;
 				fs["threedee"] >> model3D;
 				faceNorm.set3DModel(model3D);
 
-				cv::Mat cameraMat;
+				cv::Mat_<double> cameraMat;
 				fs["outA"] >> cameraMat;
 				faceNorm.setCameraMat(cameraMat);
 			}
