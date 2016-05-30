@@ -1,4 +1,4 @@
-# Install script for directory: D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/dlib
+# Install script for directory: C:/FaceVerificationSystem/Dependencies/dlib-18.18/dlib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

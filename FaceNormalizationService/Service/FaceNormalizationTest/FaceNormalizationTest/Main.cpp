@@ -7,6 +7,10 @@
 
 int main()
 {
+	std::ofstream input;
+	input.open("in.txt", std::ios::out);
+	input.close();
+
 	const char* dlibModelPath = "../models/landmarks_points.dat";
 	const char* model3DPath   = "../models/3Dmodel.yml";
 

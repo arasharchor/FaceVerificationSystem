@@ -96,15 +96,7 @@ namespace face_ver {
 
 			std::cout << eulerAngles << std::endl;
 
-			/*
-
-
-			std::vector<cv::Point2f> projModel, defaultModel;
-			std::vector<cv::Point3f> model;
-
-
-			for (int i = 0; i < model3D.rows; i++)
-				model.push_back(cv::Point3f(model3D.at<float>(i, 0), model3D.at<float>(i, 1), model3D.at<float>(i, 2)));
+/*
 			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projModel);
 			printMat("tvec", tvec);
 
@@ -131,6 +123,25 @@ namespace face_ver {
 			projectPoints(model3D, zeroRvec, tvec, cameraMat, cv::Mat(), defaultModel);
 
 			std::cout << "pojected model" << std::endl;
+=======
+
+			cv::Mat zeroRVec = cv::Mat::zeros(1, 3, CV_32F);
+			cv::Mat zeroTVec = cv::Mat::zeros(1, 3, CV_32F);
+			
+			projectPoints(model3D, rvec, tvec, cameraMat, cv::Mat(), projModel);
+			projectPoints(model3D, zeroRVec, zeroTVec, cameraMat, cv::Mat(), defaultModel);
+
+			for (int i = 0; i < projModel.size(); i++)
+				std::cout << projModel[i].x << ", ";
+			std::cout << std::endl;
+
+			for (int i = 0; i < projModel.size(); i++)
+				std::cout << projModel[i].y << ", ";
+			std::cout << std::endl << std::endl;
+
+			projModel = defaultModel;
+
+>>>>>>> 9e8dd53343e27c9aca66e0035d9d01e8a5139685
 			for (int i = 0; i < projModel.size(); i++)
 				std::cout << projModel[i].x << ", ";
 			std::cout << std::endl;
@@ -151,12 +162,18 @@ namespace face_ver {
 			// compute euler angles
 			cv::Vec3d eulerAngles;
 			cv::Mat cameraMat, rotMatrix, transVect, rotMatrixX, rotMatrixY, rotMatrixZ;
+<<<<<<< HEAD
 			double* _r = rotCameraMatrix.ptr<double>();
 			double projMatrix[12] = { _r[0],_r[1],_r[2],0,
 				_r[3],_r[4],_r[5],0,
 				_r[6],_r[7],_r[8],0 };
 
 			decomposeProjectionMatrix(cv::Mat(3, 4, CV_64FC1, projMatrix),
+=======
+			
+			decomposeProjectionMatrix(
+				projMatrix, 
+>>>>>>> 9e8dd53343e27c9aca66e0035d9d01e8a5139685
 				cameraMat,
 				rotMatrix,
 				transVect,
@@ -165,6 +182,7 @@ namespace face_ver {
 				rotMatrixZ,
 				eulerAngles);
 
+			
 			// project 3D model on points
 
 			cv::Mat RR;

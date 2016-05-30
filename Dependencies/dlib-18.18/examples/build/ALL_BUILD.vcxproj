@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGUID>{9F85D450-DEEA-393A-BB1A-2A62806142C8}</ProjectGUID>
+    <ProjectGUID>{DF335D4B-A2FC-392A-BAE1-D502530177E3}</ProjectGUID>
+    <WindowsTargetPlatformVersion>10.0.10150.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
@@ -65,7 +66,7 @@
     </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;C:\FaceVerificationSystem\Dependencies\opencv\build\include;C:\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -75,7 +76,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;C:\FaceVerificationSystem\Dependencies\opencv\build\include;C:\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -85,7 +86,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;C:\FaceVerificationSystem\Dependencies\opencv\build\include;C:\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -95,7 +96,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\..;C:\FaceVerificationSystem\Dependencies\opencv\build\include;C:\FaceVerificationSystem\Dependencies\opencv\build\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -104,10 +105,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
+    <CustomBuild Include="C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -115,12 +116,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInitialize.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCCompiler.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFileCXX.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCCompiler.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFileCXX.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -128,12 +129,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInitialize.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCCompiler.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFileCXX.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCCompiler.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFileCXX.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -141,12 +142,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInitialize.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCCompiler.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFileCXX.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCCompiler.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFileCXX.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files (x86)\CMake\bin\cmake.exe" -HD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BD:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
+"C:\Program Files (x86)\CMake\bin\cmake.exe" -HC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples -BC:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build --check-stamp-file C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -154,268 +155,268 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInitialize.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCCompiler.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.5.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeLanguageInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CMakeCommonLanguageInclude.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.5\Modules\CheckIncludeFileCXX.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;D:\Work\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Work\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInitialize.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCCompiler.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeCXXCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeGenericSystem.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\WindowsPaths.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\3.4.0\CMakeRCCompiler.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeRCInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCXXInformation.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\Platform\Windows-MSVC.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CMakeCommonLanguageInclude.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\add_global_compiler_switch.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckTypeSize.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFile.cmake;C:\Program Files (x86)\CMake\share\cmake-3.4\Modules\CheckIncludeFileCXX.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\dlib\release_build_by_default;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig-version.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVConfig.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-debug.cmake;C:\FaceVerificationSystem\Dependencies\opencv\build\x64\vc14\lib\OpenCVModules-release.cmake;C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\FaceVerificationSystem\Dependencies\dlib-18.18\examples\build\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/ZERO_CHECK.vcxproj">
-      <Project>239884FD-B33A-3AE5-A9DD-FA202AC0DB26</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/ZERO_CHECK.vcxproj">
+      <Project>8F72F879-504A-3688-BE23-AECB4AF778A2</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/3d_point_cloud_ex.vcxproj">
-      <Project>18FC567E-A33D-3AFE-AC3C-1D9B997570A0</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/3d_point_cloud_ex.vcxproj">
+      <Project>89F7CF75-92CB-3C90-BA0B-123AF1D9377C</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/assignment_learning_ex.vcxproj">
-      <Project>C8BAB822-7E3E-3A9A-A733-BEC2C19650F2</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/assignment_learning_ex.vcxproj">
+      <Project>1232EC48-050F-3723-9E47-D97F6896EF91</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bayes_net_ex.vcxproj">
-      <Project>9C1FBDAA-DF88-35A8-A1AC-6095F3F0856C</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bayes_net_ex.vcxproj">
+      <Project>535C5F58-F9D5-35DF-BC11-FBAEFE4728E3</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bayes_net_from_disk_ex.vcxproj">
-      <Project>E9A8221C-8466-32A4-B98B-947D62E26C24</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bayes_net_from_disk_ex.vcxproj">
+      <Project>36A74F1D-BD77-3E7A-9560-2DA55B83A47A</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bayes_net_gui_ex.vcxproj">
-      <Project>CF591B06-B4A4-3C4A-821F-ED19A5632888</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bayes_net_gui_ex.vcxproj">
+      <Project>B0668252-A8C0-3D4A-81DA-5B2A4D67DB95</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bridge_ex.vcxproj">
-      <Project>DD658CF3-A529-3607-9867-AB8C6AEFC523</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bridge_ex.vcxproj">
+      <Project>4C83DD3D-D7CF-324B-A03B-BEF0D853401F</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bsp_ex.vcxproj">
-      <Project>702F7186-CA8A-39E8-B018-E52EF9460E78</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/bsp_ex.vcxproj">
+      <Project>11751DF5-4564-3C1F-9D40-E0BFB11A2898</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/compress_stream_ex.vcxproj">
-      <Project>B372E285-0D41-3FC4-A9AE-369B3B80AF16</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/compress_stream_ex.vcxproj">
+      <Project>24C66EF9-9945-34AB-A599-F12BCD4F3551</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/config_reader_ex.vcxproj">
-      <Project>4AD648F5-97E9-3C60-AD7A-68FD42AC6E62</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/config_reader_ex.vcxproj">
+      <Project>D81D289A-F1FA-3F96-B888-C3A524F66C3C</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/custom_trainer_ex.vcxproj">
-      <Project>939C5AC7-CDB0-3BE1-B40A-BEE6686388D9</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/custom_trainer_ex.vcxproj">
+      <Project>F788D703-E9ED-32B3-BF2F-BE1D307AFB60</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/dir_nav_ex.vcxproj">
-      <Project>C7F2D9E6-2A71-34B9-9050-749EA0D9E0C8</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/dir_nav_ex.vcxproj">
+      <Project>DB4C7668-DA68-3571-BBC6-73901F52B8AA</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/dlib_build/dlib.vcxproj">
-      <Project>DF735909-DD8E-3D69-BB73-7A0FC3502F6F</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/dlib_build/dlib.vcxproj">
+      <Project>EC5DA7F2-EB1F-3774-9CCC-A8DD84339D71</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/empirical_kernel_map_ex.vcxproj">
-      <Project>E6EC5A1B-3DBD-3FDE-890C-AD1862B0CB31</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/empirical_kernel_map_ex.vcxproj">
+      <Project>18D2E392-AEF9-39C9-92D9-500B445AAB02</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/face_detection_ex.vcxproj">
-      <Project>F862A125-D5E3-3020-BCD4-C7BCE3896BF4</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/face_detection_ex.vcxproj">
+      <Project>1840E13D-E2F3-37AC-B4A9-4481C7D5961E</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/face_landmark_detection_ex.vcxproj">
-      <Project>6618F18E-DBF6-3F2A-B80E-1612FF3FEC3B</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/face_landmark_detection_ex.vcxproj">
+      <Project>42B8F199-D2AC-3F0A-A2A3-7B71A3F03892</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/fhog_ex.vcxproj">
-      <Project>7E57797B-5CA1-3E5D-9DA9-3DBDA7701619</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/fhog_ex.vcxproj">
+      <Project>14E25C43-8241-3858-BEB8-0E56FCF206DF</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/fhog_object_detector_ex.vcxproj">
-      <Project>AB797C9E-D46D-3134-97D5-DB0780AFD3B6</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/fhog_object_detector_ex.vcxproj">
+      <Project>2B1C6896-1243-3304-8AEE-476A5037E600</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/file_to_code_ex.vcxproj">
-      <Project>595A0FB6-408C-32C9-AC02-9AB4C7BFC1C5</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/file_to_code_ex.vcxproj">
+      <Project>F274B733-B3AA-3EA2-BF05-A9C0C6CE2FAC</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/graph_labeling_ex.vcxproj">
-      <Project>4E7F10DA-CF8E-3C80-BE1D-F7084C32C74B</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/graph_labeling_ex.vcxproj">
+      <Project>3D9DB03E-DFFF-3105-A216-F72E5E6AE7C1</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/gui_api_ex.vcxproj">
-      <Project>31E819FE-63F7-33B1-9782-64906D226761</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/gui_api_ex.vcxproj">
+      <Project>645D4E76-D1F4-3C10-BF3F-96DE6BEE9FF7</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/hough_transform_ex.vcxproj">
-      <Project>45739D60-1FD9-302C-AC40-FC375F3D3B69</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/hough_transform_ex.vcxproj">
+      <Project>0455011B-07ED-3C56-8560-5118E39C6928</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/image_ex.vcxproj">
-      <Project>5762B5A6-34D6-3E06-B139-D10E085FCB40</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/image_ex.vcxproj">
+      <Project>6D9B1B47-93C8-375E-8B7C-66840F992358</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/integrate_function_adapt_simp_ex.vcxproj">
-      <Project>BE204EBF-3D51-33A9-A0A7-F469AC3B94C1</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/integrate_function_adapt_simp_ex.vcxproj">
+      <Project>76C2199D-BD66-3EBA-82CF-D6570B9DCAB2</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/iosockstream_ex.vcxproj">
-      <Project>2883ED5D-92F7-34F5-8B7C-5E9D1C62DDC6</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/iosockstream_ex.vcxproj">
+      <Project>AAB6C496-C4C2-30DA-BBFB-3AA1714A5F08</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/kcentroid_ex.vcxproj">
-      <Project>C83D9608-D014-3ECB-ABC8-2F45D350B029</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/kcentroid_ex.vcxproj">
+      <Project>ECF943AC-5177-39D7-9693-7B7C23E8E928</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/kkmeans_ex.vcxproj">
-      <Project>237862F2-27F5-39A1-8251-38F7A69EBE58</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/kkmeans_ex.vcxproj">
+      <Project>676A0031-12BF-37AD-8970-714C35594725</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krls_ex.vcxproj">
-      <Project>6D215B50-6BB5-35B8-8429-3FB1425F262D</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krls_ex.vcxproj">
+      <Project>4C679D6F-E629-303F-BA66-642501731715</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krls_filter_ex.vcxproj">
-      <Project>8AE7349D-B4EB-3F8A-B102-BAD96EF196D2</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krls_filter_ex.vcxproj">
+      <Project>98564439-A864-30BA-8500-6B3A9A21A54F</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krr_classification_ex.vcxproj">
-      <Project>8ACE092C-6098-3E42-A21C-1EDCC3D9AE1C</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krr_classification_ex.vcxproj">
+      <Project>B02D47F0-4094-3A5E-BEDA-FA08E2143212</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krr_regression_ex.vcxproj">
-      <Project>B42D71D1-B4EB-3F0D-884C-FE1D80A48A3D</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/krr_regression_ex.vcxproj">
+      <Project>F0D9C8B4-D091-3B2A-B0B9-26E4971DE3C6</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/learning_to_track_ex.vcxproj">
-      <Project>9C9F16CC-D0A3-378D-8DFB-29ACC9DD8145</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/learning_to_track_ex.vcxproj">
+      <Project>E1F593F7-A0C0-3287-9261-EA9DB15819BB</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/least_squares_ex.vcxproj">
-      <Project>5187B2F0-F46E-3657-87D8-F649A708E305</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/least_squares_ex.vcxproj">
+      <Project>8FC80561-911B-33F2-A1DE-F4924448922E</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/linear_manifold_regularizer_ex.vcxproj">
-      <Project>5F3D8C83-E5CB-3C72-BC12-BDCDED474DA4</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/linear_manifold_regularizer_ex.vcxproj">
+      <Project>4ADE9D74-DC69-33EE-B1D6-CFCE84C70063</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/logger_custom_output_ex.vcxproj">
-      <Project>88B9C432-A616-381E-A642-2C01655074EE</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/logger_custom_output_ex.vcxproj">
+      <Project>D9CB4F52-55BB-36C2-A059-E90C16962382</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/logger_ex.vcxproj">
-      <Project>82BAF6D1-52D5-35B3-AF42-7B4BA049DC51</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/logger_ex.vcxproj">
+      <Project>FDB21879-94CB-3B83-A3C7-72704FD6F6BD</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/logger_ex_2.vcxproj">
-      <Project>7AB71B91-7A9A-364E-B301-6EE83F2B64FB</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/logger_ex_2.vcxproj">
+      <Project>B6358E75-166C-3AAF-A6D3-5279603FEE06</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/matrix_ex.vcxproj">
-      <Project>448972EF-2074-3F19-94F9-4E0E0A7ADAF0</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/matrix_ex.vcxproj">
+      <Project>6F7FCA7D-3762-3A8D-84CB-51323C6BEC8E</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/matrix_expressions_ex.vcxproj">
-      <Project>1FEE7E00-E091-3C96-BB15-8ADFA42DFE37</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/matrix_expressions_ex.vcxproj">
+      <Project>D4F5EA1F-746C-3A74-BD36-EEA6F5B3DB11</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/max_cost_assignment_ex.vcxproj">
-      <Project>9F0BC3E4-D787-383F-B366-7FD9E6DC1C85</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/max_cost_assignment_ex.vcxproj">
+      <Project>7968CC73-7FF8-342E-A6F7-79FF305DE31F</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/member_function_pointer_ex.vcxproj">
-      <Project>6872CB94-BA4E-38E5-860C-D4CC35E71554</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/member_function_pointer_ex.vcxproj">
+      <Project>D8EE29EB-A5C9-3481-8730-CCB7216A3C96</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/mlp_ex.vcxproj">
-      <Project>CAA5DAC3-8AAF-3835-B322-4981C2A3883D</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/mlp_ex.vcxproj">
+      <Project>798C7AF2-B846-38C4-BA61-D2CCD7B5B588</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/model_selection_ex.vcxproj">
-      <Project>69FE3855-E0B8-30C8-B2D3-45B7E2384B70</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/model_selection_ex.vcxproj">
+      <Project>8F350DE5-1859-3B33-8557-538415275737</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/mpc_ex.vcxproj">
-      <Project>BA2A4F7F-1C3C-31ED-872B-432F4EA151F3</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/mpc_ex.vcxproj">
+      <Project>DB9FC2AC-DC51-31A3-BF18-70AFFFE3D0B1</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/multiclass_classification_ex.vcxproj">
-      <Project>1147FA42-264A-37B9-82ED-395598C57BE6</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/multiclass_classification_ex.vcxproj">
+      <Project>B5577F64-7D15-3883-A42D-3A18989949D7</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/multithreaded_object_ex.vcxproj">
-      <Project>68902E0E-6C63-3A85-96DC-7E660DBFBB15</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/multithreaded_object_ex.vcxproj">
+      <Project>B1C4195E-5233-3008-9658-6754EDA5916C</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/object_detector_advanced_ex.vcxproj">
-      <Project>1ED6E40B-173C-36DE-BDD2-703F897715DC</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/object_detector_advanced_ex.vcxproj">
+      <Project>7647EC00-ED89-3770-B25E-BFDDF643BADA</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/object_detector_ex.vcxproj">
-      <Project>632B894B-767C-361F-91FE-7BB9D08D0652</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/object_detector_ex.vcxproj">
+      <Project>B2317DA5-A29B-3F97-8BD4-8B445BB4A331</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/one_class_classifiers_ex.vcxproj">
-      <Project>67575026-2FC7-3ECC-872D-FFCF1D7F7A44</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/one_class_classifiers_ex.vcxproj">
+      <Project>E6C60736-AE3A-34B8-94FE-A9851B07C4EA</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/optimization_ex.vcxproj">
-      <Project>DA5EC868-AD93-35A0-8C9D-B2FEEEA96B00</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/optimization_ex.vcxproj">
+      <Project>8714BC65-E377-3014-8F97-1809999731DE</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/parallel_for_ex.vcxproj">
-      <Project>24C21B7E-7869-3CC0-BEA8-DC6863CF6FC0</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/parallel_for_ex.vcxproj">
+      <Project>48504309-982E-367F-B4B7-56E79A182327</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/pipe_ex.vcxproj">
-      <Project>BDC9537A-763F-3DDA-9509-7BE0ECFE802B</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/pipe_ex.vcxproj">
+      <Project>373F0DC9-0972-370D-9967-2B8A7A8497ED</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/pipe_ex_2.vcxproj">
-      <Project>F2D77B20-0C61-358E-BB2B-F704C1E1D50D</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/pipe_ex_2.vcxproj">
+      <Project>64B665E9-7284-3071-865A-1196F036C734</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/quantum_computing_ex.vcxproj">
-      <Project>043970B2-8D0F-3B45-B049-F06037C9B459</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/quantum_computing_ex.vcxproj">
+      <Project>084C722D-CEC6-3609-97FE-923B96F03D42</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/queue_ex.vcxproj">
-      <Project>C27A596F-D67D-35D2-A09D-6655C682E68C</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/queue_ex.vcxproj">
+      <Project>278D43F3-300E-3791-B35D-30670F6CA58D</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/rank_features_ex.vcxproj">
-      <Project>578E4C5B-5A24-3F3D-B882-9B171369A64C</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/rank_features_ex.vcxproj">
+      <Project>24A89225-64B0-37FC-A931-EDB863452B3F</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/running_stats_ex.vcxproj">
-      <Project>30217F57-54BE-34EE-8A18-BD9C75804EC0</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/running_stats_ex.vcxproj">
+      <Project>55A77F91-28B1-3205-9379-6E6839C9084F</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/rvm_ex.vcxproj">
-      <Project>F95329E2-EEEA-3628-9E0C-AA5A11ED74C3</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/rvm_ex.vcxproj">
+      <Project>53FC2C33-4621-3481-85F0-0179113827F5</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/rvm_regression_ex.vcxproj">
-      <Project>35185F4F-3E55-3AEE-80F1-9307C35FDD25</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/rvm_regression_ex.vcxproj">
+      <Project>1EEB5A54-AC95-3423-ABB8-8DC001E7FE90</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sequence_labeler_ex.vcxproj">
-      <Project>607E6A56-CB78-3F07-9093-F3B6B0D41164</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sequence_labeler_ex.vcxproj">
+      <Project>1407F1EF-4AB9-321F-9255-F4998B317623</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sequence_segmenter_ex.vcxproj">
-      <Project>8CE3C26A-5884-342E-A877-17749A7B0877</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sequence_segmenter_ex.vcxproj">
+      <Project>D0EF91FD-ED26-3A18-B094-93F6264E1F7B</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/server_http_ex.vcxproj">
-      <Project>CE7EDF97-0605-30FD-8976-E1AF4A74F88D</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/server_http_ex.vcxproj">
+      <Project>2597A23A-998E-3E85-BF2A-62C9E506BAB7</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/server_iostream_ex.vcxproj">
-      <Project>A76E4E8D-AAFF-3A35-BFB0-B407E6C380B6</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/server_iostream_ex.vcxproj">
+      <Project>18B26D7A-78C3-35B7-8BDA-B941D4C2FBEC</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sockets_ex.vcxproj">
-      <Project>C70FAF24-0710-3AF7-8A2C-EE016E7EDC22</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sockets_ex.vcxproj">
+      <Project>22C47EF1-CBB7-399F-9ED8-CDD8A8961788</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sockstreambuf_ex.vcxproj">
-      <Project>A1CCE97D-5FA4-3BC3-A46E-AE557BD8DCA2</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/sockstreambuf_ex.vcxproj">
+      <Project>7531CA7B-5949-3D21-A70A-38865F75F5F0</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/std_allocator_ex.vcxproj">
-      <Project>E8ED548F-7077-3A84-AD75-FFD549267E10</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/std_allocator_ex.vcxproj">
+      <Project>7C73BE0C-FA74-3D4E-A7B1-B8F1FA5038C1</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/surf_ex.vcxproj">
-      <Project>81E833CA-F8D1-3B9A-90D3-6AC605FCA0D9</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/surf_ex.vcxproj">
+      <Project>8C42F3C7-1AC8-360A-9535-854276999D51</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_c_ex.vcxproj">
-      <Project>8138B9F4-4196-379B-B0D3-BB565AA1C559</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_c_ex.vcxproj">
+      <Project>2B730F65-50F8-3203-AF38-6EABA45CEF5F</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_ex.vcxproj">
-      <Project>6BD67586-D862-3DD7-ADF7-01FF081BBC78</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_ex.vcxproj">
+      <Project>09948C99-7A5B-3DCC-B6D9-83A479855A87</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_pegasos_ex.vcxproj">
-      <Project>BB69BFAE-CB6D-345E-96A8-472DC9147FE1</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_pegasos_ex.vcxproj">
+      <Project>5C8DC1E2-D457-3D27-AFB7-9F3240B0FDC2</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_rank_ex.vcxproj">
-      <Project>F1E7CD64-1F7F-3AB5-BFE6-A5A67D13900B</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_rank_ex.vcxproj">
+      <Project>1CA66812-5967-3F24-BBE1-2EB603FF8381</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_sparse_ex.vcxproj">
-      <Project>08172AA0-C9D6-3F4D-A35F-FE974394E827</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_sparse_ex.vcxproj">
+      <Project>0CBAE102-AF71-35F3-95D2-45535927B86C</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_struct_ex.vcxproj">
-      <Project>5D9AB45C-BF99-3E1A-A04E-1C4DF70A1297</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svm_struct_ex.vcxproj">
+      <Project>D65041D7-6523-348B-91EF-FBBA6A03D441</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svr_ex.vcxproj">
-      <Project>16D1A1C9-CAC9-355D-8F50-D529BD8C2F46</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/svr_ex.vcxproj">
+      <Project>3C9B26C3-7211-3128-BD74-F3302052377B</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/thread_function_ex.vcxproj">
-      <Project>C7FAF121-6E39-3FAB-BDA1-DC5E2EEE637F</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/thread_function_ex.vcxproj">
+      <Project>375E24A4-D384-3AA1-9436-3C87A4FB75FF</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/thread_pool_ex.vcxproj">
-      <Project>698D7F07-976C-399A-910B-F1902DF7B252</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/thread_pool_ex.vcxproj">
+      <Project>57099EFB-EDFC-3AF7-8A55-5478DC4B080E</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/threaded_object_ex.vcxproj">
-      <Project>FE2A269A-B9DD-39DA-82F2-B8784584FF9D</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/threaded_object_ex.vcxproj">
+      <Project>8364C670-9FB7-3CF6-AA52-969B4FBD8055</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/threads_ex.vcxproj">
-      <Project>249852EA-292F-37A5-A58F-17C0489B57B2</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/threads_ex.vcxproj">
+      <Project>5A34BA42-289E-3230-99F2-E328EA5C8D8D</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/timer_ex.vcxproj">
-      <Project>F90EF90D-3951-392E-B8A6-3DD55F0C5F61</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/timer_ex.vcxproj">
+      <Project>933D3594-A6CA-3AA1-8D37-F0D137459132</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/train_object_detector.vcxproj">
-      <Project>70701999-4FA0-3B41-9AE7-F9E8F9FD41CA</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/train_object_detector.vcxproj">
+      <Project>CDE9D3AB-8124-3314-A046-31856EFCF89B</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/train_shape_predictor_ex.vcxproj">
-      <Project>452D85C6-C500-382F-8CFC-DCFB856BB7C6</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/train_shape_predictor_ex.vcxproj">
+      <Project>DE59C9B8-9049-3BFD-A05A-91B9EA14F92E</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/using_custom_kernels_ex.vcxproj">
-      <Project>429A841D-A159-36EF-8731-87B8288736D2</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/using_custom_kernels_ex.vcxproj">
+      <Project>62C49FFC-B603-3662-9B64-BA026DCCFA75</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/video_tracking_ex.vcxproj">
-      <Project>941896FB-0D35-3676-9373-19609DD76D14</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/video_tracking_ex.vcxproj">
+      <Project>0F623295-DFB9-3A71-B5E4-52B8EEA7DD1A</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/webcam_face_pose_ex.vcxproj">
-      <Project>00CA0BED-7D17-35E7-BBB9-0488BE5E01B9</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/webcam_face_pose_ex.vcxproj">
+      <Project>4251A5E9-7A4F-3B15-A749-4B253AC67439</Project>
     </ProjectReference>
-    <ProjectReference Include="D:/Work/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/xml_parser_ex.vcxproj">
-      <Project>978DE22B-2C42-34D8-ACAA-A7DF440BB7BB</Project>
+    <ProjectReference Include="C:/FaceVerificationSystem/Dependencies/dlib-18.18/examples/build/xml_parser_ex.vcxproj">
+      <Project>F4BBDD92-F9DE-3AC6-81DB-06EE6019255C</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
