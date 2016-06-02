@@ -1,3 +1,6 @@
+#ifndef NORMALIZATION_2D
+#define NORMALIZATION_2D
+
 // dlib headers
 #include <dlib/image_processing/frontal_face_detector.h>
 #include <dlib/image_processing/render_face_detections.h>
@@ -23,14 +26,15 @@
 
 #include "Util.h"
 
-using namespace dlib;
 using namespace std;
 
 namespace face_ver {
 
 	void normalize2D(
-		dlib::array2d<rgb_pixel>& img,
-		std::vector<full_object_detection>& shapes,
-		dlib::array<array2d<rgb_pixel>>& faces,
+		dlib::array2d<dlib::rgb_pixel>& img,
+		std::vector<dlib::full_object_detection>& shapes,
+		dlib::array<dlib::array2d<dlib::rgb_pixel>>& faces,
 		bool removeBackground = true);
 }
+
+#endif

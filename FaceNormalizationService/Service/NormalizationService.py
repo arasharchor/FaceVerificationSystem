@@ -2,7 +2,6 @@
 """
 @author: gleotescu
 """
-
 import tempfile
 import sys
 import os
@@ -12,10 +11,12 @@ from flask import Flask, request, jsonify
 from PIL import Image
 from io import BytesIO
 
-libraryPath = "./FaceNormalizationBuild/x64/Release/FaceNormalizationBuild.dll"
-modelPath   = "./models/landmarks_points.dat"
-outputPath  = 'test_output' 
+libraryPath     = "./FaceNormalizationBuild/x64/Release/FaceNormalizationBuild.dll"
+dlibModelPath   = "./models/landmarks_points.dat"
+faceModelPath   = "./models/3Dmodel.yml"
+outputPath      = "test_output" 
 
+# face normalization library
 faceNormLib = ctypes.CDLL(libraryPath)
 
 #init function 
@@ -28,16 +29,20 @@ normalize = faceNormLib.normalizeImage
 normalize.argTypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_int]
 normalize.restype  = ctypes.c_char_p
 
-cModelPath = ctypes.c_char_p(modelPath)
+cDlibModelPath = ctypes.c_char_p(dlibModelPath)
+cFaceModelPath = ctypes.c_char_p(faceModelPath)
 
-res = init(cModelPath)
+# call to init environment
+res = init(cDlibModelPath, cFaceModelPath)
 if res != 0:
     print 'failed while trying to init face normalization tool'
 else:
     print 'face normalization tool loaded succesfully'
 
-c2DMode = ctypes.c_int(1)
-c3DMode = ctypes.c_int(0)
+# 2D vs 3D normalization
+c2DMode    = ctypes.c_int(1)
+c3DMode    = ctypes.c_int(0)
+cFrontMode = ctypes.c_int(2)
 
 # web service 
 app = Flask(__name__)
@@ -49,9 +54,10 @@ def init():
 @app.route('/normalize2D/', methods=['POST'])
 def handleRequest():
     try:
-        json  = request.get_json()
-        imgData = json['input'][0]['data']
-        filename = 'original.jpeg' #json['input'][0]['filename']
+        json     = request.get_json()
+        imgData  = json['input'][0]['data']
+        filename = 'original.jpg' #json['input'][0]['filename']
+        mode     = json['input'][0]['method']
                 
         #create directory to store current image
         imgDir  = tempfile.mkdtemp(dir='temp')
@@ -62,8 +68,15 @@ def handleRequest():
         
         cImgDir  = ctypes.c_char_p(imgDir)
         cImgPath = ctypes.c_char_p(imgPath)
+        cMode    = c3DMode
+
+        if (mode == '2D'):
+            cMode = c2DMode
         
-        facesStr = normalize(cImgPath, cImgDir, c2DMode)
+        if (mode == 'FR'):
+            cMode = cFrontMode
+
+        facesStr = normalize(cImgPath, cImgDir, cMode)
         if len(facesStr) > 0:        
             faces = facesStr.split(';')
         else:

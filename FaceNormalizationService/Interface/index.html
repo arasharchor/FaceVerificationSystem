@@ -1,10 +1,30 @@
-<html lang="en"> 	
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"> 																				 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 									 
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	 
+</head>
+
 <body style="background-color: rgb(225,230,235);">
-  <h1>Face Normalization Interface</h1>
+  <h2>Face Normalization Interface</h2>
   <form method="post" enctype="multipart/form-data" action="/upload">
-     <input type="file" name="left_image">
-     </br>
-     <input type="submit" value="Submit">
+      <input type="file" name="left_image"></br>
+      
+      <div class="radio">
+          <label><input type="radio" name="mode" value="2D">face alignmnet v1</label>
+      </div>
+      <div class="radio">
+          <label><input type="radio" name="mode" value="3D" checked>face alignment v2</label>
+      </div>
+      <div class="radio">
+          <label><input type="radio" name="mode" value="FR" >face frontalization</label>
+      </div>
+
+      <input type="submit" value="Submit" class="btn btn-default">
   </form>
 </body>
+
 </html>

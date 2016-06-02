@@ -33,10 +33,22 @@ var head = '<!DOCTYPE html>                                                     
 </head>																							         \
 <body style="background-color: rgb(225,230,235);"> 														 \
   <h1>Face Normalization Interface</h1> 																 \
-  <form method="post" enctype="multipart/form-data" action="/upload"> 									 \
-     <input type="file" name="left_image"> 																 \
-     <input type="submit" value="Submit"> 																 \
-  </form>' 																								 
+ <form method="post" enctype="multipart/form-data" action="/upload">                                     \
+      <input type="file" name="left_image"></br>                                                         \
+                                                                                                         \
+<div class="radio">                                                                                      \
+<label><input type="radio" name="mode" value="2D">face alignmnet v1</label>                              \
+</div>                                                                                                   \
+<div class="radio">                                                                                      \
+<label><input type="radio" name="mode" value="3D" checked>face alignment v2</label>                      \
+</div>                                                                                                   \
+<div class="radio">                                                                                      \
+<label><input type="radio" name="mode" value="FR" >face frontalization</label>                           \
+</div>                                                                                                   \
+                                                                                                         \
+<input type="submit" value="Submit" class="btn btn-default">                                             \
+</form>                                                                                                  \
+' 																								 
 
 var end = '\
 </body>    \
@@ -92,7 +104,7 @@ function get_err_res( json )
 
 
 // send classification request to Face Normalization Interface service
-var normalizationRequest = function(inputPath, inputName, _cb)
+var normalizationRequest = function(inputPath, inputName, mode, _cb)
 {
 	var imgContent = fs.readFileSync( inputPath ).toString('base64');
 	
@@ -105,7 +117,8 @@ var normalizationRequest = function(inputPath, inputName, _cb)
 							[
 								{
 								type : 'json',
-								data : imgContent,
+                                data : imgContent,
+                                method: mode,
 								filename : inputName
 								}
 							],
@@ -201,9 +214,10 @@ var normalizationRequest = function(inputPath, inputName, _cb)
 function normalizeFace( req, res )
 {
 	var imgPath  = req.files.image.path;
-	var imgName  = req.files.image.name;
+    var imgName  = req.files.image.name;
+    var mode     = req.files.mode;
 	
-	normalizationRequest(imgPath, imgName, function (success, response) {
+	normalizationRequest(imgPath, imgName, mode, function (success, response) {
 		if (success == true)
 		{
 			try {
@@ -289,7 +303,7 @@ function normalizeFace( req, res )
 
 function postdata( req, res )
 {
-	var files = { image : null};
+	var files = { image : null, mode : null};
 	var fstream;
     
 	req.pipe(req.busboy);
@@ -308,14 +322,26 @@ function postdata( req, res )
 								files.image = { path: './temp/' + filename, name : filename};
 							}
 
-							req.files = files;
-							
-							server_log('Normalizing faces ' + JSON.stringify(req.files));
-							normalizeFace(req, res);
+                            if (files.image != null && files.mode != null) {
+                                req.files = files;
+                                server_log('Normalizing faces ' + JSON.stringify(req.files));
+                                normalizeFace(req, res);
+                            }
 							
 						});
-		});
+        });
     
+    req.busboy.on('field', function (fieldname, val) {
+       if (fieldname === 'mode') {
+            files.mode = val;
+            if (files.image != null && files.mode != null) {
+                req.files = files;
+                server_log('Normalizing faces ' + JSON.stringify(req.files));
+                normalizeFace(req, res);
+            }
+        }
+    });    
+   
     req.busboy.on(	
     	'error', 
 		function ( error )

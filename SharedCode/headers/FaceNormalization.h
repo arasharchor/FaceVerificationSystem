@@ -5,6 +5,7 @@
 #include "LandmarksDetection.h"
 #include "2DNormalization.h"
 #include "3DNormalization.h"
+#include "Frontalization.h"
 
 // dlib headers
 #include <dlib/geometry.h>
@@ -29,7 +30,7 @@ namespace face_ver {
 		FaceNormalization(const char* modelPath) : landmarksDetector(modelPath) {}
 		FaceNormalization() {}
 
-		std::vector<string> normalizeImage(const char* path, const char* outputPath, int mode);
+		std::vector<string> normalizeImage(const char* path, const char* outputPath, face_norm::NORM_MODE mode);
 		std::vector<string> normalizeImageSet(const char* path, const char* outputPath, int mode);
 	
 		void set3DModel(cv::Mat_<double> model3D) { this->model3D = model3D; }

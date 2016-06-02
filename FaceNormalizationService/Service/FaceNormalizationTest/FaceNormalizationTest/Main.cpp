@@ -3,7 +3,7 @@
 
 #include "FaceNormalization.h"
 #include "FaceNormalizationService.h"
-
+#include "Util.h"
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
 	
 	const char* inPath = "../samples/sample_2.jpeg";
 	const char* outPath = "./results";
-	faceNorm.normalizeImage(inPath, outPath, 0);
+	faceNorm.normalizeImage(inPath, outPath, face_norm::NORM_MODE::FRONT);
 
 	return 0;
 }

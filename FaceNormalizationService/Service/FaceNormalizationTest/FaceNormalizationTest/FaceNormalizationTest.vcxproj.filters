@@ -37,6 +37,9 @@
     <ClCompile Include="..\..\..\..\SharedCode\src\3DNormalization.cpp">
       <Filter>SharedCode\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\Frontalization.cpp">
+      <Filter>SharedCode\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\SharedCode\headers\2DNormalization.h">
@@ -55,6 +58,9 @@
       <Filter>SharedCode\headers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\SharedCode\headers\3DNormalization.h">
+      <Filter>SharedCode\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\Frontalization.h">
       <Filter>SharedCode\headers</Filter>
     </ClInclude>
   </ItemGroup>

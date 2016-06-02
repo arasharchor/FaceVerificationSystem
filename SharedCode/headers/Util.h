@@ -71,6 +71,8 @@ namespace face_norm {
 	
 	void createDirectory(const std::string& path);
 
+	enum class NORM_MODE {NORM_2D = 0, NORM_3D = 1, FRONT = 2};
+
 }
 
 #endif

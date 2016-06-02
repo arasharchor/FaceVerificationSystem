@@ -23,6 +23,12 @@
     <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalizationService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\2DNormalization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\SharedCode\src\3DNormalization.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\SharedCode\headers\LandmarksDetection.h">
@@ -35,6 +41,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\SharedCode\headers\FaceNormalization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\2DNormalization.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\SharedCode\headers\3DNormalization.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

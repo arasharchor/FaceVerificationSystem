@@ -1,4 +1,5 @@
 #include "FaceNormalizationService.h"
+#include "Util.h"
 
 namespace face_ver {
 	// static member definition
@@ -18,7 +19,7 @@ namespace face_ver {
 		}
 	}
 
-	char* normalizeImage(char* path, char* outputPath, int mode)
+	char* normalizeImage(char* path, char* outputPath, NORM_MODE mode)
 	{
 		FaceNormalization faceNorm = FaceNormalizationSingleton::getInstance();
 		
@@ -35,7 +36,7 @@ namespace face_ver {
 		return result;
 	}
 
-	char* normalizeImageSet(char* setPath, char* outputPath, int mode)
+	char* normalizeImageSet(char* setPath, char* outputPath, NORM_MODE mode)
 	{
 		FaceNormalization faceNorm = FaceNormalizationSingleton::getInstance();
 		

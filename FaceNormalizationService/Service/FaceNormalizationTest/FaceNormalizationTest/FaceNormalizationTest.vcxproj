@@ -58,21 +58,25 @@
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\SharedCode\EOS_release_64.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\..\..\..\SharedCode\EOS_release_64.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\..\SharedCode\64_FaceVerification.props" />
     <Import Project="..\..\..\..\SharedCode\DLIB_64PropertySheet.props" />
     <Import Project="..\..\..\..\SharedCode\OPENCV_64PropertySheet.props" />
+    <Import Project="..\..\..\..\SharedCode\EOS_release_64.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="..\..\..\..\SharedCode\64_FaceVerification.props" />
     <Import Project="..\..\..\..\SharedCode\DLIB_64PropertySheet.props" />
     <Import Project="..\..\..\..\SharedCode\OPENCV_64PropertySheet.props" />
+    <Import Project="..\..\..\..\SharedCode\EOS_release_64.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -154,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\SharedCode\src\2DNormalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\3DNormalization.cpp" />
+    <ClCompile Include="..\..\..\..\SharedCode\src\Frontalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalizationService.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\LandmarksDetection.cpp" />
@@ -163,6 +168,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\..\SharedCode\headers\2DNormalization.h" />
     <ClInclude Include="..\..\..\..\SharedCode\headers\3DNormalization.h" />
+    <ClInclude Include="..\..\..\..\SharedCode\headers\Frontalization.h" />
     <ClInclude Include="..\..\..\..\SharedCode\headers\FaceNormalization.h" />
     <ClInclude Include="..\..\..\..\SharedCode\headers\FaceNormalizationService.h" />
     <ClInclude Include="..\..\..\..\SharedCode\headers\LandmarksDetection.h" />
