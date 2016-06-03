@@ -46,4 +46,24 @@ namespace face_ver {
 			shapes.push_back(shape);
 		}
 	}
+
+	void LandmarksDetector::detectLandmarks
+	(
+		dlib::array2d<dlib::bgr_pixel>& img,
+		std::vector<dlib::full_object_detection>& shapes
+	)
+	{
+		// Make the image larger so we can detect small faces.
+		pyramid_up(img);
+
+		// Now tell the face detector to give us a list of bounding boxes
+		// around all the faces in the image.
+		std::vector<dlib::rectangle> dets = faceDetector(img);
+
+		for (unsigned long j = 0; j < dets.size(); ++j)
+		{
+			dlib::full_object_detection shape = shapePredictor(img, dets[j]);
+			shapes.push_back(shape);
+		}
+	}
 }

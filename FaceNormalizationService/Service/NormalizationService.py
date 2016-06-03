@@ -40,8 +40,8 @@ else:
     print 'face normalization tool loaded succesfully'
 
 # 2D vs 3D normalization
-c2DMode    = ctypes.c_int(1)
-c3DMode    = ctypes.c_int(0)
+c2DMode    = ctypes.c_int(0)
+c3DMode    = ctypes.c_int(1)
 cFrontMode = ctypes.c_int(2)
 
 # web service 

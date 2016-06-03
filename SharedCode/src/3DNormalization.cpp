@@ -19,9 +19,8 @@ namespace face_ver {
 			std::vector<cv::Point> ROI_vertices;
 
 			// points on the face contour
-			for (int i = 0; i < 17; i++) {
+			for (int i = 0; i < 17; i++)
 				ROI_vertices.push_back(cv::Point(shape.part(i).x(), shape.part(i).y()));
-			}
 
 			ROI_vertices.push_back(cv::Point(shape.part(26).x(), shape.part(26).y()));
 			ROI_vertices.push_back(cv::Point(shape.part(25).x(), shape.part(25).y()));

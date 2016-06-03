@@ -158,9 +158,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\SharedCode\src\2DNormalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\3DNormalization.cpp" />
-    <ClCompile Include="..\..\..\..\SharedCode\src\Frontalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\FaceNormalizationService.cpp" />
+    <ClCompile Include="..\..\..\..\SharedCode\src\Frontalization.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\LandmarksDetection.cpp" />
     <ClCompile Include="..\..\..\..\SharedCode\src\Util.cpp" />
     <ClCompile Include="Main.cpp" />

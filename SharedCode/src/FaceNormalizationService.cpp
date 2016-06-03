@@ -19,10 +19,25 @@ namespace face_ver {
 		}
 	}
 
-	char* normalizeImage(char* path, char* outputPath, NORM_MODE mode)
+	char* normalizeImage(char* path, char* outputPath, int m)
 	{
 		FaceNormalization faceNorm = FaceNormalizationSingleton::getInstance();
 		
+		NORM_MODE mode;
+		switch (m) {
+		case 0:
+			mode = NORM_MODE::NORM_2D;
+			break;
+		case 1:
+			mode = NORM_MODE::NORM_3D;
+			break;
+		case 2:
+			mode = NORM_MODE::FRONT;
+			break;
+		default:
+			mode = NORM_MODE::NORM_2D;
+		}
+
 		std::vector<std::string> normalizedFaces = faceNorm.normalizeImage(path, outputPath, mode);
 		
 		string acc;
@@ -36,10 +51,25 @@ namespace face_ver {
 		return result;
 	}
 
-	char* normalizeImageSet(char* setPath, char* outputPath, NORM_MODE mode)
+	char* normalizeImageSet(char* setPath, char* outputPath, int m)
 	{
 		FaceNormalization faceNorm = FaceNormalizationSingleton::getInstance();
 		
+		NORM_MODE mode;
+		switch (m) {
+		case 0:
+			mode = NORM_MODE::NORM_2D;
+			break;
+		case 1:
+			mode = NORM_MODE::NORM_3D;
+			break;
+		case 2:
+			mode = NORM_MODE::FRONT;
+			break;
+		default:
+			mode = NORM_MODE::NORM_2D;
+		}
+
 		std::vector<std::string> normalizedFaces = faceNorm.normalizeImage(setPath, outputPath, mode);
 		string acc;
 

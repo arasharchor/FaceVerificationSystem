@@ -37,7 +37,9 @@ namespace face_ver {
 		LandmarksDetector(const string& modelPath);
 		
 		void detectLandmarks(const std::string& filePath, std::vector<dlib::full_object_detection>& shapes);
+		
 		void detectLandmarks(dlib::array2d<dlib::rgb_pixel>& img, std::vector<dlib::full_object_detection>& shapes);
+		void detectLandmarks(dlib::array2d<dlib::bgr_pixel>& img, std::vector<dlib::full_object_detection>& shapes);
 	};
 	
 	void writeLandmarksPts(std::vector<dlib::full_object_detection> shapes, std::string& outputFilename);
