@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef NORMALIZATION_2D
 #define NORMALIZATION_2D
 

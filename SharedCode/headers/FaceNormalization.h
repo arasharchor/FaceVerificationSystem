@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef FACE_NORMALIZATION
 #define FACE_NORMALIZATION
 

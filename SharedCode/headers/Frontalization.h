@@ -1,5 +1,7 @@
-#ifndef FRONTALIZATION
-#define FRONTALIZATION
+#pragma once
+
+#ifndef FRONTALIZATION_HEADER
+#define FRONTALIZATION_HEADER
 
 // dlib headers
 #include <dlib/image_processing/frontal_face_detector.h>
@@ -22,6 +24,11 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
+
+// eos header files
+#include <eos/core/LandmarkMapper.hpp>
+#include <eos/morphablemodel/MorphableModel.hpp>
+
 // std headers
 #include <chrono>
 #include <iostream>
@@ -39,7 +46,16 @@ namespace face_ver {
 		std::vector<dlib::full_object_detection>& shapes,
 		std::vector<cv::Mat>& faces,
 		bool removeBackground = true);
+	
+	void frontalize(
+		dlib::array2d<dlib::bgr_pixel>& img,
+		std::vector<dlib::full_object_detection>& shapes,
+		eos::morphablemodel::MorphableModel& morphable_model,
+		eos::core::LandmarkMapper& landmark_mapper,
+		std::vector<cv::Mat>& faces,
+		bool removeBackground);
 
+	void getHeadOrientation();
 }
 
 #endif

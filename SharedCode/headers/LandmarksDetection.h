@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef LANDMARKS_DETECTOR
 #define LANDMARKS_DETECTOR
 
