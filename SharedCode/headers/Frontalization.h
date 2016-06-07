@@ -24,10 +24,12 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 
-
 // eos header files
+
+#include <eos/core/Landmark.hpp>
 #include <eos/core/LandmarkMapper.hpp>
 #include <eos/morphablemodel/MorphableModel.hpp>
+
 
 // std headers
 #include <chrono>
@@ -41,6 +43,22 @@
 
 namespace face_ver {
 
+	class HeadOrientation {
+	public:
+
+		double yaw, roll, pitch;
+		double mx, my, scale;
+		unsigned int width, height;
+		cv::Mat cameraMatrix;       // 3 x 4 perspective projection matrix
+		std::vector<float> coeffs;  // morphable model coefficients  
+
+		HeadOrientation(double y, double r, double p, cv::Mat cameraMat, std::vector<float> coeffs, double scale, double mx, double my) :
+			yaw(y), roll(r), pitch(p), cameraMatrix(cameraMat), coeffs(coeffs), scale(scale), mx(mx), my(my)
+		{
+			// compute scale, width and height from orientation parameters
+		}
+	};
+
 	void frontalize(
 		dlib::array2d<dlib::bgr_pixel>& img,
 		std::vector<dlib::full_object_detection>& shapes,
@@ -53,9 +71,22 @@ namespace face_ver {
 		eos::morphablemodel::MorphableModel& morphable_model,
 		eos::core::LandmarkMapper& landmark_mapper,
 		std::vector<cv::Mat>& faces,
-		bool removeBackground);
+		bool removeBackground = true);
 
-	void getHeadOrientation();
+	HeadOrientation getHeadOrientation(
+		dlib::array2d<dlib::bgr_pixel>& img,
+		eos::core::LandmarkCollection<cv::Vec2f>& landmarks,
+		eos::morphablemodel::MorphableModel& morphable_model,
+		eos::core::LandmarkMapper& landmarkMapper);
+
+	HeadOrientation getHeadOrientation(
+		cv::Mat& img,
+		eos::core::LandmarkCollection<cv::Vec2f>& landmarks,
+		eos::morphablemodel::MorphableModel& morphable_model,
+		eos::core::LandmarkMapper& landmarkMapper);
+
+	cv::Mat removeFaceBackground(dlib::array2d<dlib::bgr_pixel>& img, dlib::full_object_detection& shape);
+
 }
 
 #endif

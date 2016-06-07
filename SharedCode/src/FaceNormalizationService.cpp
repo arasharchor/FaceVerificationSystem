@@ -5,11 +5,11 @@ namespace face_ver {
 	// static member definition
 	FaceNormalization FaceNormalizationSingleton::faceNorm;
 
-	int init(char* landmarksModelPath, char* model3DPath)
+	int init(char* landmarksModelPath, char* model3DPath, char* morphableModelPath, char* mappingsFilePath)
 	{
 		try {
 
-			FaceNormalizationSingleton::initInstance(landmarksModelPath, model3DPath);
+			FaceNormalizationSingleton::initInstance(landmarksModelPath, model3DPath, morphableModelPath, mappingsFilePath);
 
 			return 0;
 		}

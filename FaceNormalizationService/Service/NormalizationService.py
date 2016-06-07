@@ -11,17 +11,19 @@ from flask import Flask, request, jsonify
 from PIL import Image
 from io import BytesIO
 
-libraryPath     = "./FaceNormalizationBuild/x64/Release/FaceNormalizationBuild.dll"
-dlibModelPath   = "./models/landmarks_points.dat"
-faceModelPath   = "./models/3Dmodel.yml"
-outputPath      = "test_output" 
+libraryPath        = "./FaceNormalizationBuild/x64/Release/FaceNormalizationBuild.dll"
+dlibModelPath      = "./models/landmarks_points.dat"
+faceModelPath      = "./models/3Dmodel.yml"
+morphableModelPath = "./models/sfm_shape_3448.bin";
+mappingFilePath    = "./models/ibug2did.txt";
+outputPath         = "test_output" 
 
 # face normalization library
 faceNormLib = ctypes.CDLL(libraryPath)
 
 #init function 
 init = faceNormLib.init
-init.argtypes = [ctypes.c_char_p]
+init.argtypes = [ctypes.c_char_p, ctypes.c_char_p, ctypes.c_char_p]
 init.restype  = ctypes.c_int
 
 #normalize function
@@ -33,7 +35,7 @@ cDlibModelPath = ctypes.c_char_p(dlibModelPath)
 cFaceModelPath = ctypes.c_char_p(faceModelPath)
 
 # call to init environment
-res = init(cDlibModelPath, cFaceModelPath)
+res = init(cDlibModelPath, cFaceModelPath, morphableModelPath, mappingFilePath)
 if res != 0:
     print 'failed while trying to init face normalization tool'
 else:

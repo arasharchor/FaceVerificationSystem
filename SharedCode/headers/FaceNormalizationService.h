@@ -17,9 +17,9 @@ namespace face_ver {
 			return faceNorm;
 		}
 
-		static void initInstance(const char* modelPath, const char* model3DPath)
+		static void initInstance(const char* modelPath, const char* model3DPath, const char* morphableModelPath, const char* mappingsFilePath)
 		{
-			faceNorm = FaceNormalization(modelPath);
+			faceNorm = FaceNormalization(modelPath, morphableModelPath, mappingsFilePath);
 
 			// read 3D model
 			if (model3DPath != nullptr && strlen(model3DPath) > 0) {
@@ -40,7 +40,7 @@ namespace face_ver {
 	extern "C" {
 		EXPORT char* normalizeImage(char* path, char* outputPath, int mode);
 		EXPORT char* normalizeImageSet(char* setPath, char* outputPath, int mode);
-		EXPORT int   init(char* landmarksModelPath, char* model3DPath);
+		EXPORT int   init(char* landmarksModelPath, char* model3DPath, char* mmPath, char* mapPath);
 	}
 }
 

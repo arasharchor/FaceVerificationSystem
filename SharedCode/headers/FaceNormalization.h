@@ -18,6 +18,9 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+#include <eos/core/LandmarkMapper.hpp>
+#include <eos/morphablemodel/MorphableModel.hpp>
+
 // c++ headers
 #include <vector>
 
@@ -26,10 +29,15 @@ namespace face_ver {
 	class FaceNormalization {
 	private:
 		LandmarksDetector landmarksDetector;
+		
+		eos::morphablemodel::MorphableModel morphableModel;
+		eos::core::LandmarkMapper landmarkMapper;
+
 		cv::Mat_<double> model3D, cameraMat;
 		
 	public:
 		FaceNormalization(const char* modelPath) : landmarksDetector(modelPath) {}
+		FaceNormalization(const char* dlibModelPath, const char* morphableModelPath, const char* landmarksMapPath);
 		FaceNormalization() {}
 
 		std::vector<string> normalizeImage(const char* path, const char* outputPath, face_norm::NORM_MODE mode);

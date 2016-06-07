@@ -1,6 +1,28 @@
 #include "FaceNormalization.h"
 
 namespace face_ver {
+	FaceNormalization::FaceNormalization
+	(
+		const char* dlibModelPath,
+		const char* morphableModelPath,
+		const char* lamdmarksMapPath)
+		: landmarksDetector(dlibModelPath)
+	{
+		try {
+			morphableModel = eos::morphablemodel::load_model(morphableModelPath);
+		}
+		catch (const std::runtime_error& e) {
+			std::cout << "Error loading the Morphable Model: " << e.what() << std::endl;
+		}
+
+		try {
+			landmarkMapper = eos::core::LandmarkMapper(lamdmarksMapPath);
+		}
+		catch (const std::runtime_error& e) {
+			std::cout << "Error loading the Landmark mapper file: " << e.what() << std::endl;
+		}
+	}
+	
 	std::vector<string> FaceNormalization::normalizeImage(const char* path, const char* outputPath, face_norm::NORM_MODE mode)
 	{
 		std::string imagePath(path);
@@ -46,6 +68,8 @@ namespace face_ver {
 		}
 		case face_norm::NORM_MODE::NORM_3D:
 		{
+
+#ifdef OEPNCV_CALIBRATION
 			// load image
 			dlib::array2d<dlib::rgb_pixel> img;
 			dlib::load_image(img, imagePath.c_str());
@@ -55,7 +79,7 @@ namespace face_ver {
 			landmarksDetector.detectLandmarks(img, shapes);
 
 			dlib::array<dlib::array2d<dlib::rgb_pixel>> faces;
-			normalize3D(img, shapes, faces, model3D, cameraMat);
+			normalize3D(img, shapes, faces, model3D, cameraMat, true);
 
 			// create output directory
 			util::createDirectory(outputPath);
@@ -79,6 +103,43 @@ namespace face_ver {
 			}
 
 			return outputPaths;
+#else
+			// load image
+			dlib::array2d<dlib::bgr_pixel> img;
+			dlib::load_image(img, imagePath.c_str());
+
+			// detect landmarks
+			std::vector<dlib::full_object_detection> shapes;
+			landmarksDetector.detectLandmarks(img, shapes);
+
+			// vector used to store extracted faces
+			dlib::array<dlib::array2d<dlib::bgr_pixel>> faces;
+			normalize3D(img, shapes, faces, morphableModel, landmarkMapper);
+
+			// create output directory
+			util::createDirectory(outputPath);
+
+			// write faces one by one
+			std::string fullName       = imagePath.substr(imagePath.find_last_of("/\\") + 1);
+			std::string imageName      = fullName.substr(0, fullName.find_last_of("."));
+			std::string imageExtension = fullName.substr(fullName.find_last_of(".") + 1);
+
+			std::vector<string> outputPaths;
+			
+			for (int i = 0; i < faces.size(); i++) {
+				cv::Mat imgRaw = dlib::toMat<dlib::array2d<dlib::bgr_pixel>>(faces[i]);
+
+				std::string faceName = imageName + "_face_" + std::to_string(i) + "." + imageExtension;
+				std::string facePath = outputPath;
+				util::addPath(facePath, faceName);
+
+				cv::imwrite(facePath, imgRaw);
+				outputPaths.push_back(facePath);
+			}
+
+			return outputPaths;
+
+#endif
 		}
 		case face_norm::NORM_MODE::FRONT:
 		{
@@ -91,14 +152,14 @@ namespace face_ver {
 			landmarksDetector.detectLandmarks(img, shapes);
 
 			std::vector<cv::Mat> faces;
-			frontalize(img, shapes, faces);
+			frontalize(img, shapes, morphableModel, landmarkMapper, faces, true);
 
 			// create output directory
 			util::createDirectory(outputPath);
 
 			// write faces one by one
-			std::string fullName = imagePath.substr(imagePath.find_last_of("/\\") + 1);
-			std::string imageName = fullName.substr(0, fullName.find_last_of("."));
+			std::string fullName       = imagePath.substr(imagePath.find_last_of("/\\") + 1);
+			std::string imageName      = fullName.substr(0, fullName.find_last_of("."));
 			std::string imageExtension = fullName.substr(fullName.find_last_of(".") + 1);
 
 			std::vector<string> outputPaths;
@@ -116,7 +177,6 @@ namespace face_ver {
 
 			return outputPaths;
 		}
-
 		}
 	}
 
