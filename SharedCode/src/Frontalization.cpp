@@ -130,10 +130,8 @@ namespace face_ver {
 		const double scale = length(p) * 500;
 
 		// get new mean
-		cv::Mat m = affine_from_ortho * (cv::Mat_<float>() << m3x, m3y, m3z);
-		std::cout << m << std::endl;
-
-		return HeadOrientation(rendering_params.r_y, rendering_params.r_z, rendering_params.r_x, affine_from_ortho, fitted_coeffs, scale, m2x, m2y);
+		cv::Mat m = affine_from_ortho * (cv::Mat_<float>(4, 1) << m3x, m3y, m3z, 1);
+		return HeadOrientation(rendering_params.r_y, rendering_params.r_z, rendering_params.r_x, affine_from_ortho, fitted_coeffs, scale, m.at<float>(0), m.at<float>(1));
 	}
 
 	void frontalize(
@@ -197,6 +195,9 @@ namespace face_ver {
 
 			// Extract the texture from the image using given mesh and camera parameters:
 			cv::Mat isomap = eos::render::extract_texture(mesh, orientation.cameraMatrix, image);
+
+			// resize to original size
+			cv::resize(isomap, isomap, cv::Size(orientation.scale, orientation.scale));
 
 			// push the isomap:
 			faces.push_back(isomap);

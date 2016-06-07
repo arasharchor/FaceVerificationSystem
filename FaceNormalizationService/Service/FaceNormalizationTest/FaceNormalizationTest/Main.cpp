@@ -21,7 +21,7 @@ int main()
 	
 	const char* inPath  = "../samples/sample_1.jpeg";
 	const char* outPath = "./results";
-	faceNorm.normalizeImage(inPath, outPath, face_norm::NORM_MODE::NORM_3D);
+	faceNorm.normalizeImage(inPath, outPath, face_norm::NORM_MODE::FRONT);
 
 	return 0;
 }

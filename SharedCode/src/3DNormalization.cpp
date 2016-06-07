@@ -132,6 +132,7 @@ namespace face_ver {
 
 			// remove face background
 			cv::Mat image = removeFaceBackground(img, shape);
+			dlib::cv_image<dlib::bgr_pixel> noBackground(image);
 			
 			dlib::dpoint m(orientation.mx, orientation.my);
 			dlib::drectangle faceRect = centered_drect(m, orientation.scale, orientation.scale);
@@ -148,7 +149,7 @@ namespace face_ver {
 
 			const dlib::matrix<double, 2, 2> R = dlib::rotation_matrix(-orientation.roll);
 			dlib::point_transform_affine trans = dlib::point_transform_affine(R, -R*dcenter(get_rect(outImg)) + m);
-			transform_image(img, outImg, dlib::interpolate_quadratic(), trans);
+			transform_image(noBackground, outImg, dlib::interpolate_quadratic(), trans);
 
 			faces.push_back(outImg);
 		}
