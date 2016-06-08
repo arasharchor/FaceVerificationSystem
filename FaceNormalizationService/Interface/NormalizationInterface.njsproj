@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{c89aa71a-e432-4b8c-9f36-4b997539af3a}</ProjectGuid>
+        <ProjectHome />
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile>interface-server.js</StartupFile>
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="index.html" />
+        <Content Include="empty_set.png" />
+        <Content Include="package.json" />
+        <Compile Include="interface-server.js" />
+        <Content Include="temp\00019_940128_fa.png" />
+        <Content Include="temp\00026_931230_fa_a.png" />
+        <Content Include="temp\00028_940928_fa.png" />
+        <Content Include="temp\7ODAJJ0.png" />
+        <Content Include="temp\80FT4TA.png" />
+        <Content Include="temp\9ADUVPD.png" />
+        <Content Include="temp\aj2.png" />
+        <Content Include="temp\orl_test_1.PNG" />
+        <Content Include="temp\PDJIZQZ.png" />
+        <Content Include="temp\UVTIZMU.png" />
+        <Content Include="temp\YOXTX99.png" />
+        <Content Include="temp\ZGJEZV6.png" />
+        <Content Include="temp\11224291_1057621007633643_7607266798146546871_o.jpg" />
+        <Content Include="temp\12795246_1281224798568599_4484542565341010418_o.jpg" />
+        <Content Include="temp\2013-10-25 15.35.06.jpg" />
+        <Content Include="temp\daniel_craig_white_background_1920x1080_48400.jpg" />
+        <Content Include="temp\MV5BMjE2NTQ1MDQ5MV5BMl5BanBnXkFtZTgwMTg5OTc5MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMjgzNTY5NjM1M15BMl5BanBnXkFtZTgwMzE3NTE2NTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMjI1NjMyNzU2N15BMl5BanBnXkFtZTcwNTM1OTY5OQ@@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMjM2NDg2MTU2NF5BMl5BanBnXkFtZTgwMDYwNDM1MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMjM4NTg3MDY4OV5BMl5BanBnXkFtZTgwMjYwNDM1MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMjM5NjAyNDk4M15BMl5BanBnXkFtZTgwMjYyMTQ2NTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTA1MzkyNTA0NzFeQTJeQWpwZ15BbWU4MDM1MDcwMzcx._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTc2NjA4OTYyMl5BMl5BanBnXkFtZTgwNjYxMDg5MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTc5NzU5ODA0NV5BMl5BanBnXkFtZTgwMzU5Nzk2NzE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTE0MDU5NTk2MzdeQTJeQWpwZ15BbWU4MDQ2MTA4OTIx._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTg1NTI3NDQzM15BMl5BanBnXkFtZTgwNTYxNjM2MzE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTQxMjc5NDAyMV5BMl5BanBnXkFtZTgwMjg1MDAzMjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTQxNTMwMDUyOF5BMl5BanBnXkFtZTgwODAzMDk3MTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTU1NzU1NjUzOF5BMl5BanBnXkFtZTgwMjI0Njg1NDE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTU2NzE0NTY5Ml5BMl5BanBnXkFtZTgwMjgyNzc5MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTU5OTAxNTI3M15BMl5BanBnXkFtZTgwNTYxMDg5MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTY0NDMyODc0OF5BMl5BanBnXkFtZTgwNTEyMTQ0NTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTY2MDY1NzY2N15BMl5BanBnXkFtZTgwMzUxMzY3MzE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMTYwNTc2ODUxN15BMl5BanBnXkFtZTgwODE3NTE2NTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMzE5MzI0MzY2OF5BMl5BanBnXkFtZTgwODE3MTk4MTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BMzI0MTcyOTcyNV5BMl5BanBnXkFtZTgwOTc5MDQ3NTE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BOTM0NjU3MTEwM15BMl5BanBnXkFtZTgwNTY0Nzc3MjE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+        <Content Include="temp\MV5BOTU5NDU2NTk0Nl5BMl5BanBnXkFtZTgwMTU5MTQ0NDE@._V1_SX2560_SY2560_.jpg.extract_tags.0.jpg" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="temp" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <!--Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them.-->
+    <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>
