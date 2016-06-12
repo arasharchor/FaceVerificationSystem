@@ -19,7 +19,7 @@ int main()
 	face_ver::FaceNormalizationSingleton::initInstance(dlibModelPath, model3DPath, morphableModelPath, mappingFilePath);
 	face_ver::FaceNormalization faceNorm = face_ver::FaceNormalizationSingleton::getInstance();
 	
-	const char* inPath  = "../samples/sample_1.jpeg";
+	const char* inPath  = "../samples/sample_5.jpg";
 	const char* outPath = "./results";
 	faceNorm.normalizeImage(inPath, outPath, face_norm::NORM_MODE::FRONT);
 
